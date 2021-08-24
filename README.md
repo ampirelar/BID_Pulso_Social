@@ -1,7 +1,4 @@
----
-output: html_document
----
-# “Pulso Social y Económico post COVID-19: Un enfoque territorial y bajo un lente de diversidad en Colombia” 
+# “Pulso Social y Económico post COVID-19: Un enfoque territorial y bajo un lente de diversidad en Colombia”
 ## Autores: Mónica Hernández, Juan Carlos Muñoz, Ana Pirela, Germán Angulo (Universidad EAFIT)
 ### Última modificación: 24 de agosto, 2021
 
