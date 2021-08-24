@@ -8,6 +8,6 @@ Directorios:
   * Data/
   * Descriptives/
   
-"Data/" contiene el procesamiento de las bases de datos originales para construir bases estandarizadas que servirán de insumo para las estadísticas descriptivas ("Descriptives").
+"Data/" contiene el procesamiento de las bases de datos originales para construir bases estandarizadas que servirán de insumo para las estadísticas descriptivas ("Descriptives/").
 
-"Descriptives/" contiene códigos que usan las bases estandarizadas de "Data" para elaborar bases, gráficas, tablas y demás elementos para el análisis descriptivo.
+"Descriptives/" contiene códigos que usan las bases estandarizadas de "Data/" para elaborar bases, gráficas, tablas y demás elementos para el análisis descriptivo.
