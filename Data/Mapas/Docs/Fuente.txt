@@ -1,0 +1,4 @@
+Marco Geoestadístico Nacional (MGN) del DANE
+Se descargaron los shapefiles de departamentos y municipios del año 2020
+Fecha descarga: 30/08/2021
+Link: https://geoportal.dane.gov.co/servicios/descarga-y-metadatos/descarga-mgn-marco-geoestadistico-nacional/
