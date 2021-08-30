@@ -108,11 +108,9 @@ options_terr <- list(
 # 2. https://publications.iadb.org/publications/spanish/document/Pulso-social-de-Am%C3%A9rica-Latina-y-el-Caribe-2016-Realidades-y-perspectivas.pdf
 #--------------------------#
 
-bar_colors1 <- c("#3d5574", "#74ac54", "#b8544c", "#c0ac84", "#c8dccc", 
-                "#b0c4e4", "#d4742c")
+bar_colors1 <- c("#3d5574", "#74ac54", "#b8544c", "#c0ac84", "#c8dccc", "#b0c4e4", "#d4742c")
 lines_colors1 <- c("#3d5574", "#74ac54")
-countries_colors1 <- c("#759cd4", "#c43424", "#ecbc24", "#385676", "#d4742d", 
-                      "#6dad55", "#a4a4a4", "#643d94")
+countries_colors1 <- c("#759cd4", "#c43424", "#ecbc24", "#385676", "#d4742d","#6dad55", "#a4a4a4", "#643d94")
 
 bar_colors2 <- c("#4c9ccc", "#e4546c", "#fcac24", "#0c0c0c", "#b4b4b4")
 lines_colors2 <- c("#4c9ccc", "#e4546c", "#fcac24", "#0c0c0c")
