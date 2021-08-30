@@ -30,7 +30,10 @@ options(scipen = 999)
 
 # Mapas a nivel departamental
 map_dptos <- st_read("Data/Mapas/Input/MGN_DPTO_POLITICO.shp") %>% 
-  dplyr::select(DPTO_CCDGO) %>% rename(cod_dpto = DPTO_CCDGO) %>% mutate(cod_dpto = as.numeric(cod_dpto))
+  dplyr::select(DPTO_CCDGO, DPTO_CNMBR) %>% 
+  rename(nivel_value = DPTO_CCDGO, nivel_label = DPTO_CNMBR) %>% 
+  mutate(nivel_value = as.numeric(nivel_value), id_nivel = "dpto", nivel_label = str_to_title(nivel_label)) %>%
+  dplyr::select(id_nivel, nivel_label, nivel_value)
 
 # Transformamos a CRS Magna Sirgas (proyectado) para simplificar correctamente
 projcrs <- "+proj=tmerc +lat_0=4.596200416666666 +lon_0=-74.07750791666666 +k=1 +x_0=1000000 +y_0=1000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
@@ -61,7 +64,9 @@ map_mpios <- st_read("Data/Mapas/Input/MGN_MPIO_POLITICO.shp") %>%
   dplyr::select(DPTO_CCDGO, DPTO_CNMBR, MPIO_CCDGO, MPIO_CNMBR) %>% 
   rename(cod_dpto = DPTO_CCDGO, nom_dpto = DPTO_CNMBR, cod_mpio = MPIO_CCDGO, nom_mpio = MPIO_CNMBR) %>% 
   mutate(cod_mpio = as.numeric(glue("{cod_dpto}{cod_mpio}")), cod_dpto = as.numeric(cod_dpto),
-         nom_dpto = str_to_title(nom_dpto), nom_mpio = str_to_title(nom_mpio))
+         nom_dpto = str_to_title(nom_dpto), nom_mpio = str_to_title(nom_mpio), id_nivel = "mpio") %>% 
+  rename(nivel_value = cod_mpio, nivel_label = nom_mpio) %>%
+  dplyr::select(id_nivel, nivel_label, nivel_value)
 
 # Transformamos a CRS Magna Sirgas (proyectado) para simplificar correctamente
 map_mpios <- sf::st_transform(map_mpios, crs = CRS('+init=EPSG:3116'))
