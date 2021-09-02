@@ -1,10 +1,9 @@
 #-------------------------------------------------------#
 # Pulso Social BID ----
-# Ultima fecha de modificacion: 30 agosto, 2021
+# Ultima fecha de modificacion: 2 sept, 2021
 # Funciones para creacion de graficas
 #-------------------------------------------------------#
-# aaaaa
-# bbbbbb
+
 #--------------------------#
 # packages ----
 #--------------------------#
@@ -271,7 +270,6 @@ fun_graph(df = data, type = "promedio_dpto", palette = countries_colors1, statis
 fun_graph(df = data, type = "promedio_anual_gen", palette = bar_colors1, statistic = "mean", 
           style = "bar", path = "Descriptives/Ejemplo_tasa_desempleo")
 
-
 # Lineas
 fun_graph(df = data, type = "promedio_anual", palette = lines_colors2, statistic = "mean",
           style = "lines", path = "Descriptives/Ejemplo_tasa_desempleo")
@@ -281,7 +279,6 @@ fun_graph(df = data, type = "promedio_dpto", palette = countries_colors1, statis
 
 fun_graph(df = data, type = "promedio_anual_gen", palette = bar_colors1, statistic = "mean", 
           style = "lines", path = "Descriptives/Ejemplo_tasa_desempleo")
-
 
 # Mapas
 data_map <- fun_map(df = data, time_map = 2019, classes = 5)
