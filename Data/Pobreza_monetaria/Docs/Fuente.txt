@@ -1,0 +1,14 @@
+Datos de pobreza monetaria departamental (2012-2020)
+Extraídos de: https://www.dane.gov.co/index.php/estadisticas-por-tema/pobreza-y-condiciones-de-vida/pobreza-monetaria
+Descargados: 11/09/2021
+Fuente: DANE
+
+Datos de población según clases sociales y departamento (2012-2020)
+Extraídos de: https://www.dane.gov.co/index.php/estadisticas-por-tema/pobreza-y-condiciones-de-vida/pobreza-monetaria
+Descargados: 11/09/2021
+Fuente: DANE
+
+Datos de pobreza monetaria por zonas urbanas y rurales (2012-2020)
+Extraído de: https://www.dane.gov.co/index.php/estadisticas-por-tema/pobreza-y-condiciones-de-vida/pobreza-monetaria
+Descargados: 11/09/2021
+Fuente: DANE

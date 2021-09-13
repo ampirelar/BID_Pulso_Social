@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+Data/Encuesta_longitudinal_colombiana/Input/**
+Data/Gran_encuesta_integrada_de_hogares/Input/**
+
+

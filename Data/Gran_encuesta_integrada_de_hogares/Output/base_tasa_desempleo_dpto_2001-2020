@@ -1,0 +1,481 @@
+id_data,variable,id_nivel,nivel_value,nivel_label,id_time,time,value
+1,tasa_desempleo,dpto,5,Antioquia,1,2001,15.96705013422994
+1,tasa_desempleo,dpto,5,Antioquia,1,2002,15.64964533791665
+1,tasa_desempleo,dpto,5,Antioquia,1,2003,13.986386099080589
+1,tasa_desempleo,dpto,5,Antioquia,1,2004,14.185748152603441
+1,tasa_desempleo,dpto,5,Antioquia,1,2005,12.084727684977048
+1,tasa_desempleo,dpto,5,Antioquia,1,2006,12.88557221894931
+1,tasa_desempleo,dpto,5,Antioquia,1,2007,11.171685441117187
+1,tasa_desempleo,dpto,5,Antioquia,1,2008,12.115138874034203
+1,tasa_desempleo,dpto,5,Antioquia,1,2009,12.760936083703053
+1,tasa_desempleo,dpto,5,Antioquia,1,2010,11.919714560980186
+1,tasa_desempleo,dpto,5,Antioquia,1,2011,10.396732137699235
+1,tasa_desempleo,dpto,5,Antioquia,1,2012,10.629486999156365
+1,tasa_desempleo,dpto,5,Antioquia,1,2013,9.727226475901741
+1,tasa_desempleo,dpto,5,Antioquia,1,2014,9.415057292913637
+1,tasa_desempleo,dpto,5,Antioquia,1,2015,9.237427027237487
+1,tasa_desempleo,dpto,5,Antioquia,1,2016,9.618901983758633
+1,tasa_desempleo,dpto,5,Antioquia,1,2017,10.22116069941862
+1,tasa_desempleo,dpto,5,Antioquia,1,2018,10.72556624482104
+1,tasa_desempleo,dpto,5,Antioquia,1,2019,11.184322355990242
+1,tasa_desempleo,dpto,5,Antioquia,1,2020,15.925869799061745
+1,tasa_desempleo,dpto,8,Atlántico,1,2001,14.559087876653939
+1,tasa_desempleo,dpto,8,Atlántico,1,2002,15.247537524532612
+1,tasa_desempleo,dpto,8,Atlántico,1,2003,15.4709607208572
+1,tasa_desempleo,dpto,8,Atlántico,1,2004,13.803669159022586
+1,tasa_desempleo,dpto,8,Atlántico,1,2005,13.005485835547622
+1,tasa_desempleo,dpto,8,Atlántico,1,2006,12.420918320213284
+1,tasa_desempleo,dpto,8,Atlántico,1,2007,11.806589714750096
+1,tasa_desempleo,dpto,8,Atlántico,1,2008,11.11102914520331
+1,tasa_desempleo,dpto,8,Atlántico,1,2009,10.367909253038873
+1,tasa_desempleo,dpto,8,Atlántico,1,2010,9.643027148509136
+1,tasa_desempleo,dpto,8,Atlántico,1,2011,8.087209545157116
+1,tasa_desempleo,dpto,8,Atlántico,1,2012,7.98166173581156
+1,tasa_desempleo,dpto,8,Atlántico,1,2013,7.519658547240404
+1,tasa_desempleo,dpto,8,Atlántico,1,2014,7.581755210545787
+1,tasa_desempleo,dpto,8,Atlántico,1,2015,7.952013085867909
+1,tasa_desempleo,dpto,8,Atlántico,1,2016,7.622927895860878
+1,tasa_desempleo,dpto,8,Atlántico,1,2017,7.365290357375126
+1,tasa_desempleo,dpto,8,Atlántico,1,2018,7.671581747566479
+1,tasa_desempleo,dpto,8,Atlántico,1,2019,7.127860995713409
+1,tasa_desempleo,dpto,8,Atlántico,1,2020,10.79508225770427
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2001,18.75240260001653
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2002,18.241920834171314
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2003,16.6866505933258
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2004,14.788129399346081
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2005,13.063667825129322
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2006,11.481902767664588
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2007,10.415676740269618
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2008,10.060744410541183
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2009,11.471330994126609
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2010,10.647990993898219
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2011,9.578377927592689
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2012,9.535071818809627
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2013,9.006090365734593
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2014,8.682498294386715
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2015,8.739739613144248
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2016,9.2867230873304
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2017,10.51024213899316
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2018,10.491844608520738
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2019,10.898997675154632
+1,tasa_desempleo,dpto,11,Bogotá D.C.,1,2020,18.192695111925232
+1,tasa_desempleo,dpto,13,Bolívar,1,2001,13.604589128868502
+1,tasa_desempleo,dpto,13,Bolívar,1,2002,11.227566136126343
+1,tasa_desempleo,dpto,13,Bolívar,1,2003,9.714652358154654
+1,tasa_desempleo,dpto,13,Bolívar,1,2004,9.617829929438546
+1,tasa_desempleo,dpto,13,Bolívar,1,2005,10.290687714063328
+1,tasa_desempleo,dpto,13,Bolívar,1,2006,11.174016056186073
+1,tasa_desempleo,dpto,13,Bolívar,1,2007,11.832444674829565
+1,tasa_desempleo,dpto,13,Bolívar,1,2008,10.14889951941606
+1,tasa_desempleo,dpto,13,Bolívar,1,2009,10.097089640320544
+1,tasa_desempleo,dpto,13,Bolívar,1,2010,8.16143354990706
+1,tasa_desempleo,dpto,13,Bolívar,1,2011,7.722087712971942
+1,tasa_desempleo,dpto,13,Bolívar,1,2012,7.623257036488047
+1,tasa_desempleo,dpto,13,Bolívar,1,2013,7.299979345940513
+1,tasa_desempleo,dpto,13,Bolívar,1,2014,6.377470694023842
+1,tasa_desempleo,dpto,13,Bolívar,1,2015,6.9689035247899005
+1,tasa_desempleo,dpto,13,Bolívar,1,2016,6.772264144382237
+1,tasa_desempleo,dpto,13,Bolívar,1,2017,6.360653468651662
+1,tasa_desempleo,dpto,13,Bolívar,1,2018,5.824097832614512
+1,tasa_desempleo,dpto,13,Bolívar,1,2019,4.97841848448927
+1,tasa_desempleo,dpto,13,Bolívar,1,2020,10.227423790493441
+1,tasa_desempleo,dpto,15,Boyacá,1,2001,12.855036213285642
+1,tasa_desempleo,dpto,15,Boyacá,1,2002,16.100528259036754
+1,tasa_desempleo,dpto,15,Boyacá,1,2003,13.589114805589347
+1,tasa_desempleo,dpto,15,Boyacá,1,2004,12.406272429292946
+1,tasa_desempleo,dpto,15,Boyacá,1,2005,9.23937622774523
+1,tasa_desempleo,dpto,15,Boyacá,1,2006,10.54167845079216
+1,tasa_desempleo,dpto,15,Boyacá,1,2007,9.401180168675713
+1,tasa_desempleo,dpto,15,Boyacá,1,2008,6.8853290074014
+1,tasa_desempleo,dpto,15,Boyacá,1,2009,9.76091835129324
+1,tasa_desempleo,dpto,15,Boyacá,1,2010,10.137123757636143
+1,tasa_desempleo,dpto,15,Boyacá,1,2011,7.9994951708659014
+1,tasa_desempleo,dpto,15,Boyacá,1,2012,7.300960661590563
+1,tasa_desempleo,dpto,15,Boyacá,1,2013,8.904809607389677
+1,tasa_desempleo,dpto,15,Boyacá,1,2014,7.4516323575416115
+1,tasa_desempleo,dpto,15,Boyacá,1,2015,6.185885886350315
+1,tasa_desempleo,dpto,15,Boyacá,1,2016,6.952857733408416
+1,tasa_desempleo,dpto,15,Boyacá,1,2017,7.495097398352726
+1,tasa_desempleo,dpto,15,Boyacá,1,2018,7.355859385034293
+1,tasa_desempleo,dpto,15,Boyacá,1,2019,8.625663660753572
+1,tasa_desempleo,dpto,15,Boyacá,1,2020,12.212038786731183
+1,tasa_desempleo,dpto,17,Caldas,1,2001,14.343265511662542
+1,tasa_desempleo,dpto,17,Caldas,1,2002,16.34961583517089
+1,tasa_desempleo,dpto,17,Caldas,1,2003,17.654459955148376
+1,tasa_desempleo,dpto,17,Caldas,1,2004,16.066687665931692
+1,tasa_desempleo,dpto,17,Caldas,1,2005,13.997415492832655
+1,tasa_desempleo,dpto,17,Caldas,1,2006,11.803929639359346
+1,tasa_desempleo,dpto,17,Caldas,1,2007,11.75833667895422
+1,tasa_desempleo,dpto,17,Caldas,1,2008,11.884538074235978
+1,tasa_desempleo,dpto,17,Caldas,1,2009,12.941488304287324
+1,tasa_desempleo,dpto,17,Caldas,1,2010,13.981409135015408
+1,tasa_desempleo,dpto,17,Caldas,1,2011,11.777877295118673
+1,tasa_desempleo,dpto,17,Caldas,1,2012,10.150110749001849
+1,tasa_desempleo,dpto,17,Caldas,1,2013,9.249970701980548
+1,tasa_desempleo,dpto,17,Caldas,1,2014,8.809072856044171
+1,tasa_desempleo,dpto,17,Caldas,1,2015,8.364800938664986
+1,tasa_desempleo,dpto,17,Caldas,1,2016,9.281863244983196
+1,tasa_desempleo,dpto,17,Caldas,1,2017,9.226754071854446
+1,tasa_desempleo,dpto,17,Caldas,1,2018,10.124307323648345
+1,tasa_desempleo,dpto,17,Caldas,1,2019,10.985462846158466
+1,tasa_desempleo,dpto,17,Caldas,1,2020,16.369067489075587
+1,tasa_desempleo,dpto,18,Caquetá,1,2001,10.065132588489464
+1,tasa_desempleo,dpto,18,Caquetá,1,2002,7.814635035071508
+1,tasa_desempleo,dpto,18,Caquetá,1,2003,7.981807778295572
+1,tasa_desempleo,dpto,18,Caquetá,1,2004,11.45270712243258
+1,tasa_desempleo,dpto,18,Caquetá,1,2005,6.577006507592191
+1,tasa_desempleo,dpto,18,Caquetá,1,2006,10.267982902004972
+1,tasa_desempleo,dpto,18,Caquetá,1,2007,9.555751112314539
+1,tasa_desempleo,dpto,18,Caquetá,1,2008,8.696242699625875
+1,tasa_desempleo,dpto,18,Caquetá,1,2009,12.81510970097878
+1,tasa_desempleo,dpto,18,Caquetá,1,2010,11.739568940891152
+1,tasa_desempleo,dpto,18,Caquetá,1,2011,10.229620480574892
+1,tasa_desempleo,dpto,18,Caquetá,1,2012,9.603466883254153
+1,tasa_desempleo,dpto,18,Caquetá,1,2013,8.22809809165905
+1,tasa_desempleo,dpto,18,Caquetá,1,2014,7.6134120205656615
+1,tasa_desempleo,dpto,18,Caquetá,1,2015,7.778368929087179
+1,tasa_desempleo,dpto,18,Caquetá,1,2016,7.637525008718635
+1,tasa_desempleo,dpto,18,Caquetá,1,2017,8.203771859854369
+1,tasa_desempleo,dpto,18,Caquetá,1,2018,9.071577191358307
+1,tasa_desempleo,dpto,18,Caquetá,1,2019,11.06251762541203
+1,tasa_desempleo,dpto,18,Caquetá,1,2020,17.591187315130053
+1,tasa_desempleo,dpto,19,Cauca,1,2001,10.065132588489464
+1,tasa_desempleo,dpto,19,Cauca,1,2002,10.097858670608542
+1,tasa_desempleo,dpto,19,Cauca,1,2003,9.16983448483124
+1,tasa_desempleo,dpto,19,Cauca,1,2004,8.106508496107221
+1,tasa_desempleo,dpto,19,Cauca,1,2005,9.659475969289709
+1,tasa_desempleo,dpto,19,Cauca,1,2006,9.4617877958341
+1,tasa_desempleo,dpto,19,Cauca,1,2007,9.25763360797047
+1,tasa_desempleo,dpto,19,Cauca,1,2008,10.679991262159092
+1,tasa_desempleo,dpto,19,Cauca,1,2009,10.63482311178327
+1,tasa_desempleo,dpto,19,Cauca,1,2010,10.65325536818447
+1,tasa_desempleo,dpto,19,Cauca,1,2011,11.289496880933008
+1,tasa_desempleo,dpto,19,Cauca,1,2012,11.41835287190193
+1,tasa_desempleo,dpto,19,Cauca,1,2013,11.25154105400707
+1,tasa_desempleo,dpto,19,Cauca,1,2014,10.846934052127253
+1,tasa_desempleo,dpto,19,Cauca,1,2015,10.112097115212872
+1,tasa_desempleo,dpto,19,Cauca,1,2016,7.914783460644801
+1,tasa_desempleo,dpto,19,Cauca,1,2017,8.344961952725802
+1,tasa_desempleo,dpto,19,Cauca,1,2018,8.885844918966242
+1,tasa_desempleo,dpto,19,Cauca,1,2019,10.162557244700439
+1,tasa_desempleo,dpto,19,Cauca,1,2020,13.745441496262718
+1,tasa_desempleo,dpto,20,Cesar,1,2001,11.022962382223328
+1,tasa_desempleo,dpto,20,Cesar,1,2002,9.659135499960762
+1,tasa_desempleo,dpto,20,Cesar,1,2003,8.51367696993544
+1,tasa_desempleo,dpto,20,Cesar,1,2004,7.323917258832696
+1,tasa_desempleo,dpto,20,Cesar,1,2005,6.6939424934651655
+1,tasa_desempleo,dpto,20,Cesar,1,2006,11.26186392224128
+1,tasa_desempleo,dpto,20,Cesar,1,2007,14.215711949531809
+1,tasa_desempleo,dpto,20,Cesar,1,2008,13.990810510658253
+1,tasa_desempleo,dpto,20,Cesar,1,2009,10.644491396277488
+1,tasa_desempleo,dpto,20,Cesar,1,2010,10.59809628562099
+1,tasa_desempleo,dpto,20,Cesar,1,2011,10.142308781731343
+1,tasa_desempleo,dpto,20,Cesar,1,2012,9.193439750552262
+1,tasa_desempleo,dpto,20,Cesar,1,2013,8.292773352092324
+1,tasa_desempleo,dpto,20,Cesar,1,2014,9.311855505934476
+1,tasa_desempleo,dpto,20,Cesar,1,2015,8.908076713875088
+1,tasa_desempleo,dpto,20,Cesar,1,2016,11.4640673809332
+1,tasa_desempleo,dpto,20,Cesar,1,2017,10.936619674060793
+1,tasa_desempleo,dpto,20,Cesar,1,2018,11.179160988755003
+1,tasa_desempleo,dpto,20,Cesar,1,2019,13.168369885559
+1,tasa_desempleo,dpto,20,Cesar,1,2020,15.488795284599066
+1,tasa_desempleo,dpto,23,Córdoba,1,2001,13.511427341504087
+1,tasa_desempleo,dpto,23,Córdoba,1,2002,15.536671211592731
+1,tasa_desempleo,dpto,23,Córdoba,1,2003,12.751203732966484
+1,tasa_desempleo,dpto,23,Córdoba,1,2004,13.554476110136637
+1,tasa_desempleo,dpto,23,Córdoba,1,2005,12.291056662364836
+1,tasa_desempleo,dpto,23,Córdoba,1,2006,13.084088143408026
+1,tasa_desempleo,dpto,23,Córdoba,1,2007,12.770598265560047
+1,tasa_desempleo,dpto,23,Córdoba,1,2008,12.59635394988762
+1,tasa_desempleo,dpto,23,Córdoba,1,2009,14.947933682862196
+1,tasa_desempleo,dpto,23,Córdoba,1,2010,13.585085759959355
+1,tasa_desempleo,dpto,23,Córdoba,1,2011,12.612172008487176
+1,tasa_desempleo,dpto,23,Córdoba,1,2012,11.742591633544327
+1,tasa_desempleo,dpto,23,Córdoba,1,2013,8.599498300377913
+1,tasa_desempleo,dpto,23,Córdoba,1,2014,6.782133680252164
+1,tasa_desempleo,dpto,23,Córdoba,1,2015,6.03130732661512
+1,tasa_desempleo,dpto,23,Córdoba,1,2016,9.74916082985425
+1,tasa_desempleo,dpto,23,Córdoba,1,2017,9.055489547919581
+1,tasa_desempleo,dpto,23,Córdoba,1,2018,8.264102507614908
+1,tasa_desempleo,dpto,23,Córdoba,1,2019,11.213970050514535
+1,tasa_desempleo,dpto,23,Córdoba,1,2020,15.741334284481404
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2001,15.512949882273796
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2002,19.032637399907433
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2003,15.79940984522217
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2004,14.357470728271812
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2005,10.177209814466154
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2006,9.74167244556018
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2007,11.178242569402332
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2008,9.511125880721966
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2009,10.554513795874632
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2010,10.10335573845286
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2011,9.9089294427078
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2012,9.40818397024011
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2013,8.283057724398507
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2014,8.401415689141793
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2015,7.897586452233334
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2016,8.053258969776712
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2017,7.97404894559505
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2018,10.056922217091104
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2019,11.012217507230398
+1,tasa_desempleo,dpto,25,Cundinamarca,1,2020,15.822173752666268
+1,tasa_desempleo,dpto,27,Chocó,1,2001,11.55467877776212
+1,tasa_desempleo,dpto,27,Chocó,1,2002,8.1358471975614
+1,tasa_desempleo,dpto,27,Chocó,1,2003,6.279014403047256
+1,tasa_desempleo,dpto,27,Chocó,1,2004,9.655838544049615
+1,tasa_desempleo,dpto,27,Chocó,1,2005,10.488200115069333
+1,tasa_desempleo,dpto,27,Chocó,1,2006,12.602669110487428
+1,tasa_desempleo,dpto,27,Chocó,1,2007,14.235564542155425
+1,tasa_desempleo,dpto,27,Chocó,1,2008,13.175582176886886
+1,tasa_desempleo,dpto,27,Chocó,1,2009,12.272824206809942
+1,tasa_desempleo,dpto,27,Chocó,1,2010,9.854673058171649
+1,tasa_desempleo,dpto,27,Chocó,1,2011,11.8936303901
+1,tasa_desempleo,dpto,27,Chocó,1,2012,10.732828957128023
+1,tasa_desempleo,dpto,27,Chocó,1,2013,11.222745354054519
+1,tasa_desempleo,dpto,27,Chocó,1,2014,12.448787231368607
+1,tasa_desempleo,dpto,27,Chocó,1,2015,11.0165568401982
+1,tasa_desempleo,dpto,27,Chocó,1,2016,10.680619821370923
+1,tasa_desempleo,dpto,27,Chocó,1,2017,9.804518019244007
+1,tasa_desempleo,dpto,27,Chocó,1,2018,9.618730027887358
+1,tasa_desempleo,dpto,27,Chocó,1,2019,12.04710465734018
+1,tasa_desempleo,dpto,27,Chocó,1,2020,11.421909869100357
+1,tasa_desempleo,dpto,41,Huila,1,2001,12.860250328169814
+1,tasa_desempleo,dpto,41,Huila,1,2002,20.155849247708822
+1,tasa_desempleo,dpto,41,Huila,1,2003,15.650996486190666
+1,tasa_desempleo,dpto,41,Huila,1,2004,15.75172846561558
+1,tasa_desempleo,dpto,41,Huila,1,2005,11.787073993766716
+1,tasa_desempleo,dpto,41,Huila,1,2006,14.908819126007996
+1,tasa_desempleo,dpto,41,Huila,1,2007,9.680552683129733
+1,tasa_desempleo,dpto,41,Huila,1,2008,9.933109643900856
+1,tasa_desempleo,dpto,41,Huila,1,2009,10.956105824323652
+1,tasa_desempleo,dpto,41,Huila,1,2010,9.248019934146125
+1,tasa_desempleo,dpto,41,Huila,1,2011,7.917990659598531
+1,tasa_desempleo,dpto,41,Huila,1,2012,9.710675328470273
+1,tasa_desempleo,dpto,41,Huila,1,2013,8.612132451466978
+1,tasa_desempleo,dpto,41,Huila,1,2014,8.055566805718684
+1,tasa_desempleo,dpto,41,Huila,1,2015,7.611734253666954
+1,tasa_desempleo,dpto,41,Huila,1,2016,8.009587707925679
+1,tasa_desempleo,dpto,41,Huila,1,2017,8.741782954676507
+1,tasa_desempleo,dpto,41,Huila,1,2018,9.212819047353529
+1,tasa_desempleo,dpto,41,Huila,1,2019,8.219843387200862
+1,tasa_desempleo,dpto,41,Huila,1,2020,13.584902415957355
+1,tasa_desempleo,dpto,44,La Guajira,1,2001,8.151318575982526
+1,tasa_desempleo,dpto,44,La Guajira,1,2002,6.7019706164913195
+1,tasa_desempleo,dpto,44,La Guajira,1,2003,7.031879145111036
+1,tasa_desempleo,dpto,44,La Guajira,1,2004,5.872794887478751
+1,tasa_desempleo,dpto,44,La Guajira,1,2005,5.912964926750716
+1,tasa_desempleo,dpto,44,La Guajira,1,2006,5.8760601564360435
+1,tasa_desempleo,dpto,44,La Guajira,1,2007,15.324480913702768
+1,tasa_desempleo,dpto,44,La Guajira,1,2008,15.83092507300039
+1,tasa_desempleo,dpto,44,La Guajira,1,2009,10.027219246641497
+1,tasa_desempleo,dpto,44,La Guajira,1,2010,9.10204764069366
+1,tasa_desempleo,dpto,44,La Guajira,1,2011,8.598289790711958
+1,tasa_desempleo,dpto,44,La Guajira,1,2012,8.503401360544217
+1,tasa_desempleo,dpto,44,La Guajira,1,2013,7.075689772028493
+1,tasa_desempleo,dpto,44,La Guajira,1,2014,6.142566173351192
+1,tasa_desempleo,dpto,44,La Guajira,1,2015,7.237202533812703
+1,tasa_desempleo,dpto,44,La Guajira,1,2016,9.146849455181345
+1,tasa_desempleo,dpto,44,La Guajira,1,2017,6.524644567487398
+1,tasa_desempleo,dpto,44,La Guajira,1,2018,4.573388155555172
+1,tasa_desempleo,dpto,44,La Guajira,1,2019,6.53803901082439
+1,tasa_desempleo,dpto,44,La Guajira,1,2020,10.895044901402077
+1,tasa_desempleo,dpto,47,Magdalena,1,2001,12.551106598254963
+1,tasa_desempleo,dpto,47,Magdalena,1,2002,10.572573472452014
+1,tasa_desempleo,dpto,47,Magdalena,1,2003,7.0598750990528645
+1,tasa_desempleo,dpto,47,Magdalena,1,2004,7.305921355557603
+1,tasa_desempleo,dpto,47,Magdalena,1,2005,6.4411812996580595
+1,tasa_desempleo,dpto,47,Magdalena,1,2006,10.389664073192911
+1,tasa_desempleo,dpto,47,Magdalena,1,2007,11.538376558239834
+1,tasa_desempleo,dpto,47,Magdalena,1,2008,12.244605712332374
+1,tasa_desempleo,dpto,47,Magdalena,1,2009,9.791459136385292
+1,tasa_desempleo,dpto,47,Magdalena,1,2010,8.274540223516423
+1,tasa_desempleo,dpto,47,Magdalena,1,2011,9.79826972423096
+1,tasa_desempleo,dpto,47,Magdalena,1,2012,7.831300785436196
+1,tasa_desempleo,dpto,47,Magdalena,1,2013,7.902601298988134
+1,tasa_desempleo,dpto,47,Magdalena,1,2014,7.0873022808704
+1,tasa_desempleo,dpto,47,Magdalena,1,2015,7.3793980815125035
+1,tasa_desempleo,dpto,47,Magdalena,1,2016,8.426426481179291
+1,tasa_desempleo,dpto,47,Magdalena,1,2017,7.3917440138683235
+1,tasa_desempleo,dpto,47,Magdalena,1,2018,7.027231936197589
+1,tasa_desempleo,dpto,47,Magdalena,1,2019,9.151242756965244
+1,tasa_desempleo,dpto,47,Magdalena,1,2020,12.289634441391922
+1,tasa_desempleo,dpto,50,Meta,1,2001,14.855201260768073
+1,tasa_desempleo,dpto,50,Meta,1,2002,11.164071724902492
+1,tasa_desempleo,dpto,50,Meta,1,2003,11.995364893117028
+1,tasa_desempleo,dpto,50,Meta,1,2004,9.509218867488812
+1,tasa_desempleo,dpto,50,Meta,1,2005,10.680955631399318
+1,tasa_desempleo,dpto,50,Meta,1,2006,11.221591673166403
+1,tasa_desempleo,dpto,50,Meta,1,2007,10.284888054296498
+1,tasa_desempleo,dpto,50,Meta,1,2008,10.569316394372267
+1,tasa_desempleo,dpto,50,Meta,1,2009,10.834414469416567
+1,tasa_desempleo,dpto,50,Meta,1,2010,10.030778104522632
+1,tasa_desempleo,dpto,50,Meta,1,2011,9.509543159429706
+1,tasa_desempleo,dpto,50,Meta,1,2012,10.528308302635308
+1,tasa_desempleo,dpto,50,Meta,1,2013,10.36389802631579
+1,tasa_desempleo,dpto,50,Meta,1,2014,10.321811786573463
+1,tasa_desempleo,dpto,50,Meta,1,2015,10.231973455337435
+1,tasa_desempleo,dpto,50,Meta,1,2016,10.815386727346093
+1,tasa_desempleo,dpto,50,Meta,1,2017,12.16570488032205
+1,tasa_desempleo,dpto,50,Meta,1,2018,11.862279368930581
+1,tasa_desempleo,dpto,50,Meta,1,2019,13.417209810942369
+1,tasa_desempleo,dpto,50,Meta,1,2020,20.299996587554812
+1,tasa_desempleo,dpto,52,Nariño,1,2001,10.033065265623407
+1,tasa_desempleo,dpto,52,Nariño,1,2002,14.979772828143457
+1,tasa_desempleo,dpto,52,Nariño,1,2003,10.656287274781844
+1,tasa_desempleo,dpto,52,Nariño,1,2004,9.712119230608076
+1,tasa_desempleo,dpto,52,Nariño,1,2005,11.613598394878585
+1,tasa_desempleo,dpto,52,Nariño,1,2006,14.846399292293396
+1,tasa_desempleo,dpto,52,Nariño,1,2007,12.018413669319262
+1,tasa_desempleo,dpto,52,Nariño,1,2008,11.651941685415865
+1,tasa_desempleo,dpto,52,Nariño,1,2009,15.060004265972138
+1,tasa_desempleo,dpto,52,Nariño,1,2010,22.29371609580435
+1,tasa_desempleo,dpto,52,Nariño,1,2011,14.252044887836417
+1,tasa_desempleo,dpto,52,Nariño,1,2012,12.601320036183733
+1,tasa_desempleo,dpto,52,Nariño,1,2013,11.048224522389523
+1,tasa_desempleo,dpto,52,Nariño,1,2014,10.527982715122748
+1,tasa_desempleo,dpto,52,Nariño,1,2015,9.161790491431901
+1,tasa_desempleo,dpto,52,Nariño,1,2016,7.60288488426763
+1,tasa_desempleo,dpto,52,Nariño,1,2017,6.808257284662184
+1,tasa_desempleo,dpto,52,Nariño,1,2018,6.137849740714905
+1,tasa_desempleo,dpto,52,Nariño,1,2019,6.341165410624231
+1,tasa_desempleo,dpto,52,Nariño,1,2020,9.21359099052982
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2001,12.862612389172428
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2002,13.787860681882947
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2003,15.582053648645704
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2004,14.66616254868348
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2005,13.191114732867193
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2006,12.77074190632793
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2007,9.922266872894953
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2008,9.887386540462236
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2009,10.326542149098545
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2010,11.74029860898548
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2011,12.239033172488156
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2012,12.442950883129694
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2013,13.030773488177932
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2014,12.187846626501216
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2015,12.49589535250792
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2016,12.60382843472104
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2017,12.383616983104744
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2018,13.388654863332594
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2019,14.598677270340701
+1,tasa_desempleo,dpto,54,Norte de Santander,1,2020,21.041868957218142
+1,tasa_desempleo,dpto,63,Quindío,1,2001,18.318290047110786
+1,tasa_desempleo,dpto,63,Quindío,1,2002,19.994796257965803
+1,tasa_desempleo,dpto,63,Quindío,1,2003,20.967729299038698
+1,tasa_desempleo,dpto,63,Quindío,1,2004,21.086444141962893
+1,tasa_desempleo,dpto,63,Quindío,1,2005,19.52718842208796
+1,tasa_desempleo,dpto,63,Quindío,1,2006,15.129093198992443
+1,tasa_desempleo,dpto,63,Quindío,1,2007,13.728505283962395
+1,tasa_desempleo,dpto,63,Quindío,1,2008,16.61092037660907
+1,tasa_desempleo,dpto,63,Quindío,1,2009,18.75007571749902
+1,tasa_desempleo,dpto,63,Quindío,1,2010,18.10422162077561
+1,tasa_desempleo,dpto,63,Quindío,1,2011,17.74415507273646
+1,tasa_desempleo,dpto,63,Quindío,1,2012,15.389654810466077
+1,tasa_desempleo,dpto,63,Quindío,1,2013,15.767479617407265
+1,tasa_desempleo,dpto,63,Quindío,1,2014,13.544687514042078
+1,tasa_desempleo,dpto,63,Quindío,1,2015,12.85136825564205
+1,tasa_desempleo,dpto,63,Quindío,1,2016,13.928452022734868
+1,tasa_desempleo,dpto,63,Quindío,1,2017,13.51463808398382
+1,tasa_desempleo,dpto,63,Quindío,1,2018,14.116240937197494
+1,tasa_desempleo,dpto,63,Quindío,1,2019,15.15802995863299
+1,tasa_desempleo,dpto,63,Quindío,1,2020,21.558924954841533
+1,tasa_desempleo,dpto,66,Risaralda,1,2001,16.948051351748454
+1,tasa_desempleo,dpto,66,Risaralda,1,2002,16.3587875335367
+1,tasa_desempleo,dpto,66,Risaralda,1,2003,15.995143437732429
+1,tasa_desempleo,dpto,66,Risaralda,1,2004,15.928714754144208
+1,tasa_desempleo,dpto,66,Risaralda,1,2005,14.27733210880662
+1,tasa_desempleo,dpto,66,Risaralda,1,2006,12.644454076690046
+1,tasa_desempleo,dpto,66,Risaralda,1,2007,11.799009765162191
+1,tasa_desempleo,dpto,66,Risaralda,1,2008,12.562712839944362
+1,tasa_desempleo,dpto,66,Risaralda,1,2009,17.812272722338612
+1,tasa_desempleo,dpto,66,Risaralda,1,2010,18.269167123954556
+1,tasa_desempleo,dpto,66,Risaralda,1,2011,14.795100792078797
+1,tasa_desempleo,dpto,66,Risaralda,1,2012,14.810702286323036
+1,tasa_desempleo,dpto,66,Risaralda,1,2013,12.772541576864926
+1,tasa_desempleo,dpto,66,Risaralda,1,2014,12.284986726805196
+1,tasa_desempleo,dpto,66,Risaralda,1,2015,10.525721141007152
+1,tasa_desempleo,dpto,66,Risaralda,1,2016,9.254221341420692
+1,tasa_desempleo,dpto,66,Risaralda,1,2017,7.801545964369697
+1,tasa_desempleo,dpto,66,Risaralda,1,2018,7.648397981403071
+1,tasa_desempleo,dpto,66,Risaralda,1,2019,7.56429805012801
+1,tasa_desempleo,dpto,66,Risaralda,1,2020,13.652420818327224
+1,tasa_desempleo,dpto,68,Santander,1,2001,13.738794603780471
+1,tasa_desempleo,dpto,68,Santander,1,2002,15.749749922666847
+1,tasa_desempleo,dpto,68,Santander,1,2003,14.91733532225791
+1,tasa_desempleo,dpto,68,Santander,1,2004,14.150765218778943
+1,tasa_desempleo,dpto,68,Santander,1,2005,12.086111902259848
+1,tasa_desempleo,dpto,68,Santander,1,2006,11.175378344246376
+1,tasa_desempleo,dpto,68,Santander,1,2007,10.050287437140703
+1,tasa_desempleo,dpto,68,Santander,1,2008,8.607436635509988
+1,tasa_desempleo,dpto,68,Santander,1,2009,7.845820770837658
+1,tasa_desempleo,dpto,68,Santander,1,2010,8.808688879531047
+1,tasa_desempleo,dpto,68,Santander,1,2011,7.573173097326434
+1,tasa_desempleo,dpto,68,Santander,1,2012,7.775598190785993
+1,tasa_desempleo,dpto,68,Santander,1,2013,7.3106383796288625
+1,tasa_desempleo,dpto,68,Santander,1,2014,6.538799972496795
+1,tasa_desempleo,dpto,68,Santander,1,2015,6.6592643997224155
+1,tasa_desempleo,dpto,68,Santander,1,2016,7.269903972682816
+1,tasa_desempleo,dpto,68,Santander,1,2017,6.798775422614185
+1,tasa_desempleo,dpto,68,Santander,1,2018,7.665212263052588
+1,tasa_desempleo,dpto,68,Santander,1,2019,9.591006586172824
+1,tasa_desempleo,dpto,68,Santander,1,2020,14.573515956285677
+1,tasa_desempleo,dpto,70,Sucre,1,2001,9.014190139910266
+1,tasa_desempleo,dpto,70,Sucre,1,2002,7.8455313042932975
+1,tasa_desempleo,dpto,70,Sucre,1,2003,6.220017722008903
+1,tasa_desempleo,dpto,70,Sucre,1,2004,7.312141010543518
+1,tasa_desempleo,dpto,70,Sucre,1,2005,5.988083965191908
+1,tasa_desempleo,dpto,70,Sucre,1,2006,8.530706490141032
+1,tasa_desempleo,dpto,70,Sucre,1,2007,11.547304859238261
+1,tasa_desempleo,dpto,70,Sucre,1,2008,10.093927023635707
+1,tasa_desempleo,dpto,70,Sucre,1,2009,9.486637804450591
+1,tasa_desempleo,dpto,70,Sucre,1,2010,11.156450275201689
+1,tasa_desempleo,dpto,70,Sucre,1,2011,10.329661507761296
+1,tasa_desempleo,dpto,70,Sucre,1,2012,9.228392357986447
+1,tasa_desempleo,dpto,70,Sucre,1,2013,9.449707224245026
+1,tasa_desempleo,dpto,70,Sucre,1,2014,8.438502260520114
+1,tasa_desempleo,dpto,70,Sucre,1,2015,8.302147685103954
+1,tasa_desempleo,dpto,70,Sucre,1,2016,9.381579045252671
+1,tasa_desempleo,dpto,70,Sucre,1,2017,9.119667167228775
+1,tasa_desempleo,dpto,70,Sucre,1,2018,9.141484237412673
+1,tasa_desempleo,dpto,70,Sucre,1,2019,11.188059758014125
+1,tasa_desempleo,dpto,70,Sucre,1,2020,14.911715000165685
+1,tasa_desempleo,dpto,73,Tolima,1,2001,16.488883814148313
+1,tasa_desempleo,dpto,73,Tolima,1,2002,17.199474193158466
+1,tasa_desempleo,dpto,73,Tolima,1,2003,17.910849158516744
+1,tasa_desempleo,dpto,73,Tolima,1,2004,16.868288459457183
+1,tasa_desempleo,dpto,73,Tolima,1,2005,14.15434265672598
+1,tasa_desempleo,dpto,73,Tolima,1,2006,15.56887056366469
+1,tasa_desempleo,dpto,73,Tolima,1,2007,12.978472864570673
+1,tasa_desempleo,dpto,73,Tolima,1,2008,15.236724954592399
+1,tasa_desempleo,dpto,73,Tolima,1,2009,14.105469361260672
+1,tasa_desempleo,dpto,73,Tolima,1,2010,14.627712221354654
+1,tasa_desempleo,dpto,73,Tolima,1,2011,17.152945931924766
+1,tasa_desempleo,dpto,73,Tolima,1,2012,11.279903078639315
+1,tasa_desempleo,dpto,73,Tolima,1,2013,9.676070296604983
+1,tasa_desempleo,dpto,73,Tolima,1,2014,9.684607450380776
+1,tasa_desempleo,dpto,73,Tolima,1,2015,10.412325203719405
+1,tasa_desempleo,dpto,73,Tolima,1,2016,10.319842626334289
+1,tasa_desempleo,dpto,73,Tolima,1,2017,10.118987597055561
+1,tasa_desempleo,dpto,73,Tolima,1,2018,12.837116808905577
+1,tasa_desempleo,dpto,73,Tolima,1,2019,15.302068212276648
+1,tasa_desempleo,dpto,73,Tolima,1,2020,21.669369597238546
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2001,17.33173493745918
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2002,16.349238226834668
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2003,14.679470746953868
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2004,15.468176247268001
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2005,12.667251202719834
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2006,13.084106908528085
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2007,10.977027476976398
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2008,12.797841040941488
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2009,13.970505435394609
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2010,12.998453983886016
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2011,13.91418255216287
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2012,13.430340203404304
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2013,12.860532736205341
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2014,11.664824593720576
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2015,11.034782756964818
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2016,11.176095261831225
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2017,11.453715292805702
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2018,11.283315830855432
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2019,11.89044548391661
+1,tasa_desempleo,dpto,76,Valle del Cauca,1,2020,18.90578447422478

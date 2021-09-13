@@ -1,0 +1,7 @@
+Datos de índice de Gini por países 
+1. Banco Mundial (Gini index (World Bank estimate))
+Extraído de: https://data.worldbank.org/indicator/SI.POV.GINI?end=2019&start=1967
+Descarga: 12/09/2021
+2. Our World in Data (Income inequality – Gini Index, 1981 to 2015)
+Extraído de: https://ourworldindata.org/grapher/economic-inequality-gini-index?tab=chart
+Descarga: 12/09/2021

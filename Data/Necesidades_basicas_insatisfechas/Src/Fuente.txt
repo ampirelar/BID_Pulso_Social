@@ -1,0 +1,5 @@
+Datos de Necesidades básicas insatisfechas a nivel municipal de fuente censal 2018 - DANE
+Datos de NBI municipal por zona (cabecera, centro poblado, rural disperso)
+Datos de NBI municipal por etnia
+Extraído de: https://www.dane.gov.co/index.php/estadisticas-por-tema/pobreza-y-condiciones-de-vida/necesidades-basicas-insatisfechas-nbi
+Descarga: 11/09/2021

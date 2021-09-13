@@ -1,0 +1,6 @@
+Datos de Índice de pobreza multidimensional del DANE, municipal y departamental
+Datos municipales con base a censo 2018: 2018
+Datos departamentales con base a censo 2018: 2018-2020
+Datos departamentales con base a censo 2005: 2011-2018
+Extraído de: https://www.dane.gov.co/index.php/estadisticas-por-tema/pobreza-y-condiciones-de-vida/pobreza-multidimensional#departamentos
+Descargado: 11/09/2021

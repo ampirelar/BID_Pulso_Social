@@ -1,0 +1,5 @@
+Proyecciones de población del DANE para 1985-2017 y 2018-2035 a nivel municipal
+Proyecciones de población por edad y municipio para 2005-2017 y 2018-2026
+Base: Censo Nacional 2018
+Fuente: https://www.dane.gov.co/index.php/estadisticas-por-tema/demografia-y-poblacion/proyecciones-de-poblacion
+Descargado: 09/08/2021
