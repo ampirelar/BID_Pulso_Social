@@ -1,0 +1,30 @@
+Instrucciones para subir archivos grandes al repositorio (Git)
+
+Fuente: 
+https://medium.com/junior-dev/how-to-use-git-lfs-large-file-storage-to-push-large-files-to-github-41c8db1e2d65
+https://git-lfs.github.com/
+
+Antes de realizar cualquier cambio en el repositorio, si se conoce que existen archivos grandes (> 100mb), 
+hay que subirlos individualmente.
+
+Pasos:
+1. Instalar Git LFS (https://git-lfs.github.com/)
+
+2. Abrir terminal de R y digitar: 
+git lfs install
+
+3. Identificar extensión de grandes archivos: 
+git lfs track "*.psd"
+- Este paso puede repetirse para varias extensiones
+
+4. Identificar el archivo grande a subir (Hacerlo 1 por 1): 
+git add .gitattributes Data/Proyecciones_poblacion/Output/base_proyecciones_poblacion_mpio_gen_edad_2005-2026.csv
+
+5. Hacer el commit:
+git commit -m "Large file"
+
+6. Enviar al repositorio (push):
+git push origin main
+- Es importante señalar origin main
+
+7. Luego de subir grandes archivos puede realizarse un push normal para todos los demás
