@@ -1,6 +1,6 @@
 #-------------------------------------------------------#
 # Pulso Social BID ----
-# Ultima fecha de modificacion: 5 sept, 2021
+# Ultima fecha de modificacion: 6 sept, 2021
 # Funciones para creacion de graficas
 #-------------------------------------------------------#
 
@@ -8,16 +8,7 @@
 # packages ----
 #--------------------------#
 
-rm(list=ls())
 pacman::p_load(tidyverse, glue, sf)
-# .rs.restartR()
-
-#--------------------------#
-# paths ----
-#--------------------------#
-
-datos_ori <- "Descriptives/Herramientas/Input"
-datos <- "Descriptives/Herramientas/Output"
 options(scipen = 999)
 
 #-------------------------------------------------------#
@@ -32,7 +23,7 @@ options(scipen = 999)
 fun_data <- function(df){
   
   # Etiquetas nombres departamentos
-  nom_dpto <- readxl::read_xlsx(glue("{datos_ori}/base_nombres_departamentos.xlsx")) 
+  nom_dpto <- readxl::read_xlsx("Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
   
   # Identificar si existen desagregaciones en los datos (genero, jovenes, minorias)
   # Sin desagregacion
@@ -103,27 +94,20 @@ fun_map <- function(df, time_map, classes, pob_cat, statistic){
 # Crea graficos segun el estilo indicado
 #--------------------------#
 
-# df <- data
-# type <- "promedio_anual"
-# palette <- lines_colors1
-# statistic <- "mean"
-# style <- "bar"
-# theme <- NULL
-
 fun_graph <- function(df, type, palette, statistic, path, style, g_theme){
   
   # Temas por default
   if(missing(g_theme)){
-  theme <- list(
-    theme_classic(base_size = text*1.5),
-    theme(axis.title.x = element_text(colour = "black"),
-          axis.title.y = element_text(colour = "black"),
-          axis.text.x = element_text(colour = "black"),
-          axis.text.y = element_text(colour = "black"),
-          legend.position = "bottom",
-          plot.title = element_text(hjust = 0.5),
-          legend.title = element_blank()))
-  
+    theme <- list(
+      theme_classic(base_size = text*1.5),
+      theme(axis.title.x = element_text(colour = "black"),
+            axis.title.y = element_text(colour = "black"),
+            axis.text.x = element_text(colour = "black"),
+            axis.text.y = element_text(colour = "black"),
+            legend.position = "bottom",
+            plot.title = element_text(hjust = 0.5),
+            legend.title = element_blank()))
+    
     theme_map <- list(
       theme_minimal(base_size = text),
       theme(legend.title = element_blank(),
@@ -180,14 +164,14 @@ fun_graph <- function(df, type, palette, statistic, path, style, g_theme){
     graph <- ggplot(data = df, aes(x = nivel_label, y = value, fill = nivel_label)) +
       geom_bar(stat = "summary", fun = statistic) +
       options_terr + theme + 
-      scale_fill_manual(values =  rep(palette, 5))
+      scale_fill_manual(values =  rep(palette, 40))
   }
   
   if(type == "promedio_anual_gen" & style == "bar"){
     graph <- ggplot(data = data, aes(x = time, y = value, fill = nivel_pob)) +
       geom_bar(stat = "summary", fun = statistic, position = position_dodge()) +
       options_time + theme + 
-      scale_fill_manual(values =  rep(palette, 5))
+      scale_fill_manual(values =  rep(palette, 40))
   }
   
   # B. Lineas ----
@@ -204,7 +188,7 @@ fun_graph <- function(df, type, palette, statistic, path, style, g_theme){
       geom_line(stat = "summary", fun = statistic, aes(color = nivel_pob), size = s, alpha = a_line) +
       geom_point(stat = "summary", fun = statistic, aes(color = nivel_pob), size = s*2, alpha = a_dot) +
       options_time + theme +
-      scale_color_manual(values = rep(palette, 5)) +
+      scale_color_manual(values = rep(palette, 40)) +
       scale_x_continuous(breaks = years_break)
   }
   
@@ -213,7 +197,7 @@ fun_graph <- function(df, type, palette, statistic, path, style, g_theme){
       geom_line(stat = "summary", fun = statistic, aes(color = nivel_label), size = s, alpha = a_line) +
       geom_point(stat = "summary", fun = statistic, aes(color = nivel_label), size = s*2, alpha = a_line) +
       options_time + theme + 
-      scale_color_manual(values = rep(palette, 5)) +
+      scale_color_manual(values = rep(palette, 40)) +
       scale_x_continuous(breaks = years_break)
   }
   
@@ -222,8 +206,8 @@ fun_graph <- function(df, type, palette, statistic, path, style, g_theme){
     graph <- ggplot(data = df) +
       geom_sf(aes(fill = q_value), color = "#2b2b2b", size = 0.1, alpha = a_dot) + 
       geom_text(aes(X, Y, label = nivel_label), vjust = 1.5, color = "black", 
-                position = position_dodge(0.9), size = text/4) +
-      scale_fill_manual(values =  rep(palette, 5), na.value = "#ededed") +
+                position = position_dodge(0.9), size = text/7) +
+      scale_fill_manual(values =  rep(palette, 40), na.value = "#ededed") +
       guides(fill = guide_legend(ncol = 6)) +
       options_map + theme_map
   }
@@ -294,7 +278,7 @@ map_cont1 <- c("#C5DCFF", "#A1B8DC", "#7E96B8", "#5D7495", "#3D5574")
 map_cont2 <- c("#74AC54", "#3AA367", "#00977B", "#00898B", "#007A94", "#006993")
 
 # Cortes de anios (etiquetas eje X)
-years_break <- c(2001, 2005, 2010, 2015, 2019)
+years_break <- c(2001, 2005, 2010, 2015, 2020)
 
 #-------------------------------------------------------#
 # 2. Graficas ----
@@ -304,57 +288,57 @@ years_break <- c(2001, 2005, 2010, 2015, 2019)
 # A. General ----
 #--------------------------#
 
-# Abrimos datos de ejemplo
-geih <- readxl::read_xlsx("Data/Ejemplo_base_datos/Output/geih_datos_ejemplo.xlsx", sheet = "departamental") %>%
-  mutate(value_label = "Tasa de desempleo (%)")
-
-# Preparar datos
-data <- fun_data(geih)
-
-# Barras
-grafica1 <- fun_graph(df = data, type = "promedio_anual", palette = lines_colors2, statistic = "mean",
-                style = "bar", g_theme = custom_theme,
-                path = "Descriptives/Ejemplo_tasa_desempleo")
-
-grafica2 <- fun_graph(df = data, type = "promedio_dpto", palette = countries_colors1, statistic = "mean", 
-          style = "bar", path = "Descriptives/Ejemplo_tasa_desempleo")
-
-# Ejemplo de graficas multiples
-Rmisc::multiplot(grafica1, grafica2, cols = 2)
-
-# Lineas
-grafica <- fun_graph(df = data, type = "promedio_anual", palette = lines_colors2, statistic = "mean",
-          style = "lines", path = "Descriptives/Ejemplo_tasa_desempleo")
-
-grafica <- fun_graph(df = data, type = "promedio_dpto", palette = countries_colors1, statistic = "mean", 
-          style = "lines", path = "Descriptives/Ejemplo_tasa_desempleo")
-
-# Mapas
-data_map <- fun_map(df = data, time_map = 2019, classes = 5)
-fun_graph(df = data_map, palette = map_cont1, style = "map", path = "Descriptives/Ejemplo_tasa_desempleo")
-
-#--------------------------#
-# B. Genero ----
-#--------------------------#
-
-geih_gen <- readxl::read_xlsx("Data/Ejemplo_base_datos/Output/geih_datos_ejemplo.xlsx", sheet = "departamental_genero") %>%
-  mutate(value_label = "Tasa de desempleo (%)")
-data <- fun_data(geih_gen)
-
-# Barras y lineas por genero
-grafica <- fun_graph(df = data, type = "promedio_anual_gen", palette = bar_colors1, statistic = "mean", 
-          style = "bar", path = "Descriptives/Ejemplo_tasa_desempleo")
-
-grafica <- fun_graph(df = data, type = "promedio_anual_gen", palette = bar_colors1, statistic = "mean", 
-          style = "lines", path = "Descriptives/Ejemplo_tasa_desempleo")
-
-# Ejemplo para promediar variable de categorias poblacionales
-data_map <- fun_map(df = data, time_map = 2019, classes = 5, statistic = "mean")
-fun_graph(df = data_map, palette = map_cont1, style = "map", path = "Descriptives/Ejemplo_tasa_desempleo")
-
-# Ejemplo para elegir categoria de desagregacion poblacional
-data_map <- fun_map(df = data, time_map = 2019, classes = 5, pob_cat = "Mujer")
-fun_graph(df = data_map, palette = map_cont1, style = "map", path = "Descriptives/Ejemplo_tasa_desempleo")
+# # Abrimos datos de ejemplo
+# geih <- readxl::read_xlsx("Data/Ejemplo_base_datos/Output/geih_datos_ejemplo.xlsx", sheet = "departamental") %>%
+#   mutate(value_label = "Tasa de desempleo (%)")
+# 
+# # Preparar datos
+# data <- fun_data(geih)
+# 
+# # Barras
+# grafica1 <- fun_graph(df = data, type = "promedio_anual", palette = lines_colors2, statistic = "mean",
+#                 style = "bar", g_theme = custom_theme,
+#                 path = "Descriptives/Ejemplo_tasa_desempleo")
+# 
+# grafica2 <- fun_graph(df = data, type = "promedio_dpto", palette = countries_colors1, statistic = "mean", 
+#           style = "bar", path = "Descriptives/Ejemplo_tasa_desempleo")
+# 
+# # Ejemplo de graficas multiples
+# Rmisc::multiplot(grafica1, grafica2, cols = 2)
+# 
+# # Lineas
+# grafica <- fun_graph(df = data, type = "promedio_anual", palette = lines_colors2, statistic = "mean",
+#           style = "lines", path = "Descriptives/Ejemplo_tasa_desempleo")
+# 
+# grafica <- fun_graph(df = data, type = "promedio_dpto", palette = countries_colors1, statistic = "mean", 
+#           style = "lines", path = "Descriptives/Ejemplo_tasa_desempleo")
+# 
+# # Mapas
+# data_map <- fun_map(df = data, time_map = 2019, classes = 5)
+# fun_graph(df = data_map, palette = map_cont1, style = "map", path = "Descriptives/Ejemplo_tasa_desempleo")
+# 
+# #--------------------------#
+# # B. Genero ----
+# #--------------------------#
+# 
+# geih_gen <- readxl::read_xlsx("Data/Ejemplo_base_datos/Output/geih_datos_ejemplo.xlsx", sheet = "departamental_genero") %>%
+#   mutate(value_label = "Tasa de desempleo (%)")
+# data <- fun_data(geih_gen)
+# 
+# # Barras y lineas por genero
+# grafica <- fun_graph(df = data, type = "promedio_anual_gen", palette = bar_colors1, statistic = "mean", 
+#           style = "bar", path = "Descriptives/Ejemplo_tasa_desempleo")
+# 
+# grafica <- fun_graph(df = data, type = "promedio_anual_gen", palette = bar_colors1, statistic = "mean", 
+#           style = "lines", path = "Descriptives/Ejemplo_tasa_desempleo")
+# 
+# # Ejemplo para promediar variable de categorias poblacionales
+# data_map <- fun_map(df = data, time_map = 2019, classes = 5, statistic = "mean")
+# fun_graph(df = data_map, palette = map_cont1, style = "map", path = "Descriptives/Ejemplo_tasa_desempleo")
+# 
+# # Ejemplo para elegir categoria de desagregacion poblacional
+# data_map <- fun_map(df = data, time_map = 2019, classes = 5, pob_cat = "Mujer")
+# fun_graph(df = data_map, palette = map_cont1, style = "map", path = "Descriptives/Ejemplo_tasa_desempleo")
 
 
 # # Abrir mapa municipios
