@@ -89,9 +89,9 @@ panel_pob <- bind_rows(pob1, pob2) %>%
          id_time = 1, time = year, value_label = "Población", value = poblacion) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
+table(panel_pob$time)
 
-table(panel_pob$year)
+# Exportar base
+write_csv(panel_pob, glue("{datos}/base_proyecciones_poblacion_mpio_1985-2035.csv"))
+rm(panel_pob, pob1, pob2)
 
-# Guardamos panel
-saveRDS(panel_pob, glue("{datos}/panel_poblacion_mpios_1985-2035.rds"))
-rm(pob1, pob2)
