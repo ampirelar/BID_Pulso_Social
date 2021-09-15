@@ -54,10 +54,13 @@ pob_long <- pob %>%
 
 pobres <- pob_long[which(pob_long$variable == "Pobres")[1]:which(pob_long$variable == "Centros poblados y rural disperso")[9], ] %>%
   mutate(clase = "Pobres") %>% filter(variable != clase)
+
 vulnerables <- pob_long[which(pob_long$variable == "Vulnerables")[1]:which(pob_long$variable == "Centros poblados y rural disperso")[9*2], ] %>%
   mutate(clase = "Vulnerables") %>% filter(variable != clase)
+
 media <- pob_long[which(pob_long$variable == "Clase media")[1]:which(pob_long$variable == "Centros poblados y rural disperso")[9*3], ] %>%
   mutate(clase = "Clase media") %>% filter(variable != clase)
+
 alta <- pob_long[which(pob_long$variable == "Clase alta")[1]:which(pob_long$variable == "Centros poblados y rural disperso")[9*4], ] %>%
   mutate(clase = "Clase alta") %>% filter(variable != clase)
 
