@@ -628,6 +628,3 @@ data_eam_A.M <- bind_rows(data_eam_2009, data_eam_2010, data_eam_2011, data_eam_
                            data_eam_2019)
 
 write_csv(data_eam_A.M, glue("{datos}/base_personal_prom_am_2009-2019.csv"))
-
-
-
