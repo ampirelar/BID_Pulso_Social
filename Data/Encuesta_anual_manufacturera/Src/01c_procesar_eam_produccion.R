@@ -310,19 +310,16 @@ eam2018 <- read_xlsx(glue("{datos_ori}/Anexos_EAM_principales_variables_2018.xls
 area_m <- data_frame( "area" = c("Barranquilla", "Bogotá", "Bucaramanga", "Cali", "Cartagena", "Cauca", "Cúcuta", "Manizales", "Medellín", "Pereira", "Valle", "Resto", "Total"),
                       "nivel_value" = c("Barranquilla_A.M.", "Bogotá_D.C.", "Bucaramanga_A.M.", "Cali_A.M.", "Cartagena", "Cauca", "Cúcuta_A.M.", "Manizales_A.M.", "Medellín_A.M.", "Pereira_A.M.", "Valledupar_A.M.", "Resto_del_país", "Total_ciudades_y_A.M."))
 
-eam_2018 <- eam2018 %>% .[ -c(1:5),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1),] %>% .[ ,-(4:12)] %>%
-  filter(Total > 0)
+eam_2018 <- eam2018 %>% .[ -c(1:5),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1),] %>% .[ ,-(9:12)] %>% .[ ,-(2:7)]
 
-eam_2018$`Número de` = as.numeric(eam_2018$`Número de`)
-eam_2018 <- eam_2018 %>% mutate(time = "2018") %>%
-  .[ ,-(3)]
+eam_2018 <- eam_2018 %>% mutate(time = "2018") %>% filter(Producción > 0)
 
 eam_2018 <- eam_2018 %>% mutate(area = gsub("-"," ", `Área Metropolitana`))
 eam_2018 <- eam_2018 %>% mutate(area = word(area, 1))
 
-data_eam_2018 <- eam_2018 %>% mutate(id_data = "4", variable = "establecimientos", id_nivel = "area_metropolitana", 
-                                     value_label = "Número de empresas", id_time = "1") %>% left_join(area_m, by = "area") %>%
-  rename(nivel_label = `Área Metropolitana`, value = `Número de`) %>% 
+data_eam_2018 <- eam_2018 %>% mutate(id_data = "4", variable = "produccion", id_nivel = "area_metropolitana", 
+                                     value_label = "Producción bruta", id_time = "1") %>% left_join(area_m, by = "area") %>%
+  rename(nivel_label = `Área Metropolitana`, value = Producción) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
@@ -333,19 +330,16 @@ eam2017 <- read_xlsx(glue("{datos_ori}/Anexos_EAM_principales_variables_2017.xls
 area_m <- data_frame( "area" = c("Barranquilla", "Bogotá", "Bucaramanga", "Cali", "Cartagena", "Cauca", "Cúcuta", "Manizales", "Medellín", "Pereira", "Valle", "Resto", "Total"),
                       "nivel_value" = c("Barranquilla_A.M.", "Bogotá_D.C.", "Bucaramanga_A.M.", "Cali_A.M.", "Cartagena", "Cauca", "Cúcuta_A.M.", "Manizales_A.M.", "Medellín_A.M.", "Pereira_A.M.", "Valledupar_A.M.", "Resto_del_país", "Total_ciudades_y_A.M."))
 
-eam_2017 <- eam2017 %>% .[ -c(1:6),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1),] %>% .[ ,-(4:12)] %>%
-  filter(Total > 0)
+eam_2017 <- eam2017 %>% .[ -c(1:6),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1),] %>% .[ ,-(9:12)] %>% .[ ,-(2:7)]
 
-eam_2017$`Numero de` = as.numeric(eam_2017$`Numero de`)
-eam_2017 <- eam_2017 %>% mutate(time = "2017") %>%
-  .[ ,-(3)]
+eam_2017 <- eam_2017 %>% mutate(time = "2017") %>% filter(Producción > 0)
 
 eam_2017 <- eam_2017 %>% mutate(area = gsub("-"," ", `Area Metropolitana`))
 eam_2017 <- eam_2017 %>% mutate(area = word(area, 1))
 
-data_eam_2017 <- eam_2017 %>% mutate(id_data = "4", variable = "establecimientos", id_nivel = "area_metropolitana", 
-                                     value_label = "Número de empresas", id_time = "1") %>% left_join(area_m, by = "area") %>%
-  rename(nivel_label = `Area Metropolitana`, value = `Numero de`) %>% 
+data_eam_2017 <- eam_2017 %>% mutate(id_data = "4", variable = "produccion", id_nivel = "area_metropolitana", 
+                                     value_label = "Producción bruta", id_time = "1") %>% left_join(area_m, by = "area") %>%
+  rename(nivel_label = `Area Metropolitana`, value = Producción) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 
@@ -357,19 +351,16 @@ eam2016 <- read_xlsx(glue("{datos_ori}/Anexos_EAM_principales_variables_2016.xls
 area_m <- data_frame( "area" = c("Barranquilla", "Bogotá", "Bucaramanga", "Cali", "Cartagena", "Cauca", "Cúcuta", "Manizales", "Medellín", "Pereira", "Valle", "Resto", "Total"),
                       "nivel_value" = c("Barranquilla_A.M.", "Bogotá_D.C.", "Bucaramanga_A.M.", "Cali_A.M.", "Cartagena", "Cauca", "Cúcuta_A.M.", "Manizales_A.M.", "Medellín_A.M.", "Pereira_A.M.", "Valledupar_A.M.", "Resto_del_país", "Total_ciudades_y_A.M."))
 
-eam_2016 <- eam2016 %>% .[ -c(1:5),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1),] %>% .[ ,-(4:12)] %>%
-  filter(Total > 0)
+eam_2016 <- eam2016 %>% .[ -c(1:5),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1),] %>% .[ ,-(9:12)] %>% .[,-(2:7)]
 
-eam_2016$`Numero de` = as.numeric(eam_2016$`Numero de`)
-eam_2016 <- eam_2016 %>% mutate(time = "2016") %>%
-  .[ ,-(3)]
+eam_2016 <- eam_2016 %>% mutate(time = "2016") %>% filter(Producción > 0)
 
 eam_2016 <- eam_2016 %>% mutate(area = gsub("-"," ", `Area Metropolitana`))
 eam_2016 <- eam_2016 %>% mutate(area = word(area, 1))
 
-data_eam_2016 <- eam_2016 %>% mutate(id_data = "4", variable = "establecimientos", id_nivel = "area_metropolitana", 
-                                     value_label = "Número de empresas", id_time = "1") %>% left_join(area_m, by = "area") %>%
-  rename(nivel_label = `Area Metropolitana`, value = `Numero de`) %>% 
+data_eam_2016 <- eam_2016 %>% mutate(id_data = "4", variable = "produccion", id_nivel = "area_metropolitana", 
+                                     value_label = "Producción bruta", id_time = "1") %>% left_join(area_m, by = "area") %>%
+  rename(nivel_label = `Area Metropolitana`, value = Producción) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
@@ -380,19 +371,16 @@ eam2015 <- read_excel(glue("{datos_ori}/Anexos_EAM_principales_variables (1).xls
 area_m <- data_frame( "area" = c("Barranquilla", "Bogotá", "Bucaramanga", "Cali", "Cartagena", "Cauca", "Cúcuta", "Manizales", "Medellín", "Pereira", "Valle", "Resto", "Total"),
                       "nivel_value" = c("Barranquilla_A.M.", "Bogotá_D.C.", "Bucaramanga_A.M.", "Cali_A.M.", "Cartagena", "Cauca", "Cúcuta_A.M.", "Manizales_A.M.", "Medellín_A.M.", "Pereira_A.M.", "Valledupar_A.M.", "Resto_del_país", "Total_ciudades_y_A.M."))
 
-eam_2015 <- eam2015 %>% .[ -c(1:6),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1),] %>% .[ ,-(4:12)] %>%
-  filter(Total > 0)
+eam_2015 <- eam2015 %>% .[ -c(1:6),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1),] %>% .[ ,-(9:12)] %>% .[ ,-(2:7)]
 
-eam_2015$`Numero de` = as.numeric(eam_2015$`Numero de`)
-eam_2015 <- eam_2015 %>% mutate(time = "2015") %>%
-  .[ ,-(3)]
+eam_2015 <- eam_2015 %>% mutate(time = "2015") %>% filter(Producción > 0)
 
 eam_2015 <- eam_2015 %>% mutate(area = gsub("-"," ", `Area Metropolitana`))
 eam_2015 <- eam_2015 %>% mutate(area = word(area, 1))
 
-data_eam_2015 <- eam_2015 %>% mutate(id_data = "4", variable = "establecimientos", id_nivel = "area_metropolitana", 
-                                     value_label = "Número de empresas", id_time = "1") %>% left_join(area_m, by = "area") %>%
-  rename(nivel_label = `Area Metropolitana`, value = `Numero de`) %>% 
+data_eam_2015 <- eam_2015 %>% mutate(id_data = "4", variable = "produccion", id_nivel = "area_metropolitana", 
+                                     value_label = "Producción bruta", id_time = "1") %>% left_join(area_m, by = "area") %>%
+  rename(nivel_label = `Area Metropolitana`, value = Producción) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 #----------------------------------
 #Establecimientos 2014
@@ -402,19 +390,17 @@ eam2014 <- read_excel(glue("{datos_ori}/Anexos_EAM_2014_def/Anexos EAM 2014/c2_6
 area_m <- data_frame( "area" = c("Barranquilla", "Bogotá", "Bucaramanga", "Cali", "Cartagena", "Cauca", "Cúcuta", "Manizales", "Medellín", "Pereira", "Valle", "Resto", "Total"),
                       "nivel_value" = c("Barranquilla_A.M.", "Bogotá_D.C.", "Bucaramanga_A.M.", "Cali_A.M.", "Cartagena", "Cauca", "Cúcuta_A.M.", "Manizales_A.M.", "Medellín_A.M.", "Pereira_A.M.", "Valledupar_A.M.", "Resto_del_país", "Total_ciudades_y_A.M."))
 
-eam_2014 <- eam2014 %>% .[ -c(1:3),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1),] %>% .[ ,-(4:12)] %>%
-  filter(Total > 0) %>% janitor::clean_names()
+eam_2014 <- eam2014 %>% .[ -c(1:3),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1),] %>% .[ ,-(9:12)] %>%
+  .[ ,-(2:7)] %>% janitor::clean_names()
 
-eam_2014$numero_de = as.numeric(eam_2014$numero_de)
-eam_2014 <- eam_2014 %>% mutate(time = "2014") %>%
-  .[ ,-(3)]
+eam_2014 <- eam_2014 %>% mutate(time = "2014") %>% filter(produccion > 0)
 
 eam_2014 <- eam_2014 %>% mutate(area = gsub("-"," ", area_metropolitana))
 eam_2014 <- eam_2014 %>% mutate(area = word(area, 1))
 
-data_eam_2014 <- eam_2014 %>% mutate(id_data = "4", variable = "establecimientos", id_nivel = "area_metropolitana", 
-                                     value_label = "Número de empresas", id_time = "1") %>% left_join(area_m, by = "area") %>%
-  rename(nivel_label = area_metropolitana, value = numero_de) %>% 
+data_eam_2014 <- eam_2014 %>% mutate(id_data = "4", variable = "produccion", id_nivel = "area_metropolitana", 
+                                     value_label = "Producción bruta", id_time = "1") %>% left_join(area_m, by = "area") %>%
+  rename(nivel_label = area_metropolitana, value = produccion) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
@@ -425,19 +411,17 @@ eam2013 <- read_excel(glue("{datos_ori}/Anexos_2013/Anexos EAM 2013 definitivos/
 area_m <- data_frame( "area" = c("Barranquilla", "Bogotá", "Bucaramanga", "Cali", "Cartagena", "Cauca", "Cúcuta", "Manizales", "Medellín", "Pereira", "Valle", "Resto", "TOTAL"),
                       "nivel_value" = c("Barranquilla_A.M.", "Bogotá_D.C.", "Bucaramanga_A.M.", "Cali_A.M.", "Cartagena", "Cauca", "Cúcuta_A.M.", "Manizales_A.M.", "Medellín_A.M.", "Pereira_A.M.", "Valledupar_A.M.", "Resto_del_país", "Total_ciudades_y_A.M."))
 
-eam_2013 <- eam2013 %>% .[ -c(1:3),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1:3),] %>% .[ ,-(4:12)]
-eam_2013 <- eam_2013 %>% filter( `NUMERO DE ESTABLECIMIENTOS` > 0) %>% janitor::clean_names()
+eam_2013 <- eam2013 %>% .[ -c(1:3),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1:3),] %>% .[ ,-(9:12)] %>% .[ ,-(2:7)]
+eam_2013 <- eam_2013 %>% filter( `PRODUCCIÓN BRUTA (g)` > 0) %>% janitor::clean_names()
 
-eam_2013$numero_de_establecimientos = as.numeric(eam_2013$numero_de_establecimientos)
-eam_2013 <- eam_2013 %>% mutate(time = "2013") %>%
-  .[ ,-(3)]
+eam_2013 <- eam_2013 %>% mutate(time = "2013")
 
 eam_2013 <- eam_2013 %>% mutate(area = gsub("-"," ", area_metropolitana))
 eam_2013 <- eam_2013 %>% mutate(area = word(area, 1))
 
-data_eam_2013 <- eam_2013 %>% mutate(id_data = "4", variable = "establecimientos", id_nivel = "area_metropolitana", 
-                                     value_label = "Número de empresas", id_time = "1") %>% left_join(area_m, by = "area") %>%
-  rename(nivel_label = area_metropolitana, value = numero_de_establecimientos) %>% 
+data_eam_2013 <- eam_2013 %>% mutate(id_data = "4", variable = "produccion", id_nivel = "area_metropolitana", 
+                                     value_label = "Producción bruta", id_time = "1") %>% left_join(area_m, by = "area") %>%
+  rename(nivel_label = area_metropolitana, value = produccion_bruta_g) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
@@ -448,19 +432,17 @@ eam2012 <- read_excel(glue("{datos_ori}/Anex_2012def/ANEXOS EAM 2012/c2_6_12_con
 area_m <- data_frame( "area" = c("Barranquilla", "Bogotá", "Bucaramanga", "Cali", "Cartagena", "Cauca", "Cúcuta", "Manizales", "Medellín", "Pereira", "Valle", "Resto", "TOTAL"),
                       "nivel_value" = c("Barranquilla_A.M.", "Bogotá_D.C.", "Bucaramanga_A.M.", "Cali_A.M.", "Cartagena", "Cauca", "Cúcuta_A.M.", "Manizales_A.M.", "Medellín_A.M.", "Pereira_A.M.", "Valledupar_A.M.", "Resto_del_país", "Total_ciudades_y_A.M."))
 
-eam_2012 <- eam2012 %>% .[ -c(1:3),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1:3),] %>% .[ ,-(4:12)]
-eam_2012 <- eam_2012 %>% filter( `NUMERO DE` > 0) %>% janitor::clean_names()
+eam_2012 <- eam2012 %>% .[ -c(1:3),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1:3),] %>% .[ ,-(9:12)] %>% .[ ,-(2:7)]
+eam_2012 <- eam_2012 %>% filter( PRODUCCION > 0) %>% janitor::clean_names()
 
-eam_2012$numero_de = as.numeric(eam_2012$numero_de)
-eam_2012 <- eam_2012 %>% mutate(time = "2012") %>%
-  .[ ,-(3)]
+eam_2012 <- eam_2012 %>% mutate(time = "2012")
 
 eam_2012 <- eam_2012 %>% mutate(area = gsub("-"," ", area_metropolitana))
 eam_2012 <- eam_2012 %>% mutate(area = word(area, 1))
 
-data_eam_2012 <- eam_2012 %>% mutate(id_data = "4", variable = "establecimientos", id_nivel = "area_metropolitana", 
-                                     value_label = "Número de empresas", id_time = "1") %>% left_join(area_m, by = "area") %>%
-  rename(nivel_label = area_metropolitana, value = numero_de) %>% 
+data_eam_2012 <- eam_2012 %>% mutate(id_data = "4", variable = "produccion", id_nivel = "area_metropolitana", 
+                                     value_label = "Producción bruta", id_time = "1") %>% left_join(area_m, by = "area") %>%
+  rename(nivel_label = area_metropolitana, value = produccion) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 #----------------------------------
 #Establecimientos 2011
@@ -470,22 +452,21 @@ eam2011 <- read_excel(glue("{datos_ori}/Anexos_2011def/CUADROS EAM/c2_6_11 con r
 area_m <- data_frame( "area" = c("Barranquilla", "Bogotá", "Bucaramanga", "Cali", "Cartagena", "Cauca", "Cúcuta", "Manizales", "Medellín", "Pereira", "Valle", "Resto", "TOTAL"),
                       "nivel_value" = c("Barranquilla_A.M.", "Bogotá_D.C.", "Bucaramanga_A.M.", "Cali_A.M.", "Cartagena", "Cauca", "Cúcuta_A.M.", "Manizales_A.M.", "Medellín_A.M.", "Pereira_A.M.", "Valledupar_A.M.", "Resto_del_país", "Total_ciudades_y_A.M."))
 
-eam_2011 <- eam2011 %>% .[ -c(1:3),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1:3),] %>% .[ ,-(4:12)]
-eam_2011 <- eam_2011 %>% filter( `NUMERO DE` > 0) %>% janitor::clean_names()
+eam_2011 <- eam2011 %>% .[ -c(1:3),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1:3),] %>% .[ ,-(9:12)] %>% .[ ,-(2:7)]
+eam_2011 <- eam_2011 %>% filter( PRODUCCION > 0) %>% janitor::clean_names()
 
-eam_2011$numero_de = as.numeric(eam_2011$numero_de)
-eam_2011 <- eam_2011 %>% mutate(time = "2011") %>%
-  .[ ,-(3)]
+eam_2011 <- eam_2011 %>% mutate(time = "2011")
 
 eam_2011 <- eam_2011 %>% mutate(area = gsub("-"," ", area_metropolitana))
 eam_2011 <- eam_2011 %>% mutate(area = word(area, 1))
 
 area_m <- area_m %>% mutate (area = chartr("ÁÉÍÓÚ", "AEIOU", toupper(area_m$area)))
 
-data_eam_2011 <- eam_2011 %>% mutate(id_data = "4", variable = "establecimientos", id_nivel = "area_metropolitana", 
-                                     value_label = "Número de empresas", id_time = "1") %>% left_join(area_m, by = "area") %>%
-  rename(nivel_label = area_metropolitana, value = numero_de) %>% 
+data_eam_2011 <- eam_2011 %>% mutate(id_data = "4", variable = "produccion", id_nivel = "area_metropolitana", 
+                                     value_label = "Producción bruta", id_time = "1") %>% left_join(area_m, by = "area") %>%
+  rename(nivel_label = area_metropolitana, value = produccion) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
+
 #----------------------------------
 #Establecimientos 2010
 #----------------------------------
@@ -494,19 +475,17 @@ eam2010 <- read_excel(glue("{datos_ori}/Anexos_2010/c2_6_10_con reserva.xls"))
 area_m <- data_frame( "area" = c("Barranquilla", "Bogotá", "Bucaramanga", "Cali", "Cartagena", "Cauca", "Cúcuta", "Manizales", "Medellín", "Pereira", "Valle", "Resto", "Total"),
                       "nivel_value" = c("Barranquilla_A.M.", "Bogotá_D.C.", "Bucaramanga_A.M.", "Cali_A.M.", "Cartagena", "Cauca", "Cúcuta_A.M.", "Manizales_A.M.", "Medellín_A.M.", "Pereira_A.M.", "Valledupar_A.M.", "Resto_del_país", "Total_ciudades_y_A.M."))
 
-eam_2010 <- eam2010 %>% .[ -c(1:3),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1:3),] %>% .[ ,-(4:13)]
-eam_2010 <- eam_2010 %>% filter( `Numero de` > 0) %>% janitor::clean_names()
+eam_2010 <- eam2010 %>% .[ -c(1:3),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1:3),] %>% .[ ,-(9:13)]%>% .[ ,-(2:7)]
+eam_2010 <- eam_2010 %>% filter( Producción > 0) %>% janitor::clean_names()
 
-eam_2010$numero_de = as.numeric(eam_2010$numero_de)
-eam_2010 <- eam_2010 %>% mutate(time = "2010") %>%
-  .[ ,-(3)]
+eam_2010 <- eam_2010 %>% mutate(time = "2010")
 
 eam_2010 <- eam_2010 %>% mutate(area = gsub("-"," ", area_metropolitana))
 eam_2010 <- eam_2010 %>% mutate(area = word(area, 1))
 
-data_eam_2010 <- eam_2010 %>% mutate(id_data = "4", variable = "establecimientos", id_nivel = "area_metropolitana", 
-                                     value_label = "Número de empresas", id_time = "1") %>% left_join(area_m, by = "area") %>%
-  rename(nivel_label = area_metropolitana, value = numero_de) %>% 
+data_eam_2010 <- eam_2010 %>% mutate(id_data = "4", variable = "produccion", id_nivel = "area_metropolitana", 
+                                     value_label = "Producción bruta", id_time = "1") %>% left_join(area_m, by = "area") %>%
+  rename(nivel_label = area_metropolitana, value = produccion) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 #----------------------------------
 #Establecimientos 2009
@@ -516,19 +495,17 @@ eam2009 <- read_excel(glue("{datos_ori}/EAM 2009 Editados 270911/c2_6_09_con res
 area_m <- data_frame( "area" = c("Barranquilla", "Bogotá", "Bucaramanga", "Cali", "Cartagena", "Cauca", "Cúcuta", "Manizales", "Medellín", "Pereira", "Valle", "Resto", "Total"),
                       "nivel_value" = c("Barranquilla_A.M.", "Bogotá_D.C.", "Bucaramanga_A.M.", "Cali_A.M.", "Cartagena", "Cauca", "Cúcuta_A.M.", "Manizales_A.M.", "Medellín_A.M.", "Pereira_A.M.", "Valledupar_A.M.", "Resto_del_país", "Total_ciudades_y_A.M."))
 
-eam_2009 <- eam2009 %>% .[ -c(1:3),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1:3),] %>% .[ ,-(4:13)]
-eam_2009 <- eam_2009 %>% filter( `Numero de` > 0) %>% janitor::clean_names()
+eam_2009 <- eam2009 %>% .[ -c(1:3),] %>% janitor::row_to_names(row_number = 1) %>% .[-c(1:3),] %>% .[ ,-(9:13)] %>% .[ ,-(2:7)]
+eam_2009 <- eam_2009 %>% filter( Producción > 0) %>% janitor::clean_names()
 
-eam_2009$numero_de = as.numeric(eam_2009$numero_de)
-eam_2009 <- eam_2009 %>% mutate(time = "2009") %>%
-  .[ ,-(3)]
+eam_2009 <- eam_2009 %>% mutate(time = "2009")
 
 eam_2009 <- eam_2009 %>% mutate(area = gsub("-"," ", area_metropolitana))
 eam_2009 <- eam_2009 %>% mutate(area = word(area, 1))
 
-data_eam_2009 <- eam_2009 %>% mutate(id_data = "4", variable = "establecimientos", id_nivel = "area_metropolitana", 
-                                     value_label = "Número de empresas", id_time = "1") %>% left_join(area_m, by = "area") %>%
-  rename(nivel_label = area_metropolitana, value = numero_de) %>% 
+data_eam_2009 <- eam_2009 %>% mutate(id_data = "4", variable = "produccion", id_nivel = "area_metropolitana", 
+                                     value_label = "Producción bruta", id_time = "1") %>% left_join(area_m, by = "area") %>%
+  rename(nivel_label = area_metropolitana, value = produccion) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 #---------------------------------------------------------------
 #Establecimientos por área metropolitana y ciudades
@@ -538,4 +515,4 @@ data_eam_A.M <- bind_rows(data_eam_2009, data_eam_2010, data_eam_2011, data_eam_
                           data_eam_2014, data_eam_2015, data_eam_2016, data_eam_2017, data_eam_2018,
                           data_eam_2019)
 
-write_csv(data_eam_A.M, glue("{datos}/base_establecimientos_am_2009-2019.csv"))
+write_csv(data_eam_A.M, glue("{datos}/base_produccion_am_2009-2019.csv"))
