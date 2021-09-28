@@ -13,11 +13,11 @@ rm(list=ls())
 pacman::p_load(tidyverse, glue, readxl)
 #.rs.restartR()
 
-datos_ori <- "C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Data/Indice_pobreza_multidimensional/Input"
-datos <- "C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Data/Indice_pobreza_multidimensional/Output"
+datos_ori <- "Data/Indice_pobreza_multidimensional/Input"
+datos <- "Data/Indice_pobreza_multidimensional/Output"
 options(scipen = 999)
 
-nom_dpto <- read_xlsx("C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
+nom_dpto <- read_xlsx("Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
 
 #----------------------------------
 #Hacinamiento crítico zonas

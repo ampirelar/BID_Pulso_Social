@@ -13,12 +13,12 @@ rm(list=ls())
 pacman::p_load(tidyverse, glue, readxl)
 #.rs.restartR()
 
-datos_ori <- "C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Data/Encuesta_anual_manufacturera/Input"
-datos <- "C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Data/Encuesta_anual_manufacturera/Output"
+datos_ori <- "Data/Encuesta_anual_manufacturera/Input"
+datos <- "Data/Encuesta_anual_manufacturera/Output"
 options(scipen = 999)
 
 
-nom_dpto <- read_xlsx("C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
+nom_dpto <- read_xlsx("Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
 
 #----------------------------------
 #Personal promedio por empresa 2019

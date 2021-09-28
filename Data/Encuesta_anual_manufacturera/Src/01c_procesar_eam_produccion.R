@@ -13,14 +13,14 @@ rm(list=ls())
 pacman::p_load(tidyverse, glue, readxl)
 #.rs.restartR()
 
-datos_ori <- "C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Data/Encuesta_anual_manufacturera/Input"
-datos <- "C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Data/Encuesta_anual_manufacturera/Output"
+datos_ori <- "Data/Encuesta_anual_manufacturera/Input"
+datos <- "Data/Encuesta_anual_manufacturera/Output"
 options(scipen = 999)
 
-nom_dpto <- read_xlsx("C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
+nom_dpto <- read_xlsx("Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
 
 #----------------------------------
-#Establecimientos 2019
+#Producción 2019
 #----------------------------------
 
 eam2019 <- read_xlsx(glue("{datos_ori}/Anexos_EAM_principales_variables_2019.xlsx"), sheet = "2.5")
@@ -39,7 +39,7 @@ data_eam_2019 <- eam_pers %>% filter(departamentos %in% nom_dpto$nivel_label) %>
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2018
+#Producción 2018
 #----------------------------------
 
 eam2018 <- read_xlsx(glue("{datos_ori}/Anexos_EAM_principales_variables_2018.xlsx"), sheet = "2.5")
@@ -58,7 +58,7 @@ data_eam_2018 <- eam_2018 %>% filter(departamentos %in% nom_dpto$nivel_label) %>
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2017
+#Producción 2017
 #----------------------------------
 
 eam2017 <- read_xlsx(glue("{datos_ori}/Anexos_EAM_principales_variables_2017.xlsx"), sheet = "2.5")
@@ -77,7 +77,7 @@ data_eam_2017 <- eam_2017 %>% filter(departamentos %in% nom_dpto$nivel_label) %>
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2016
+#Producción 2016
 #----------------------------------
 
 eam2016 <- read_xlsx(glue("{datos_ori}/Anexos_EAM_principales_variables_2016.xlsx"), sheet = "2.5")
@@ -97,7 +97,7 @@ data_eam_2016 <- eam_2016 %>% filter(departamentos %in% nom_dpto$nivel_label) %>
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2015
+#Producción 2015
 #----------------------------------
 
 eam2015 <- read_excel(glue("{datos_ori}/Anexos_EAM_principales_variables (1).xls"), sheet = "2.5")
@@ -116,7 +116,7 @@ data_eam_2015 <- eam_2015 %>% filter(departamentos %in% nom_dpto$nivel_label) %>
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2014
+#Producción 2014
 #----------------------------------
 
 eam2014 <- read_excel(glue("{datos_ori}/Anexos_EAM_2014_def/Anexos EAM 2014/c2_5_14.xls"))
@@ -135,7 +135,7 @@ data_eam_2014 <- eam_2014 %>% filter(departamentos %in% nom_dpto$nivel_label) %>
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2013
+#Producción 2013
 #----------------------------------
 
 eam2013 <- read_excel(glue("{datos_ori}/Anexos_2013/Anexos EAM 2013 definitivos/c2_5_13.xls"))
@@ -156,7 +156,7 @@ data_eam_2013 <- eam_2013 %>% filter(departamento %in% nom_dpto$nivel_label) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2012
+#Producción 2012
 #----------------------------------
 
 eam2012 <- read_excel(glue("{datos_ori}/Anex_2012def/ANEXOS EAM 2012/c2_5_12_con reserva.xls"))
@@ -179,7 +179,7 @@ data_eam_2012 <- eam_2012 %>% filter(departamento %in% nom_dpto$nivel_label) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2011
+#Producción 2011
 #----------------------------------
 
 eam2011 <- read_excel(glue("{datos_ori}/Anexos_2011def/CUADROS EAM/c2_5_11 con reserva.xls"))
@@ -202,7 +202,7 @@ data_eam_2011 <- eam_2011 %>% filter(departamento %in% nom_dpto$nivel_label) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2010
+#Producción 2010
 #----------------------------------
 
 eam2010 <- read_excel(glue("{datos_ori}/Anexos_2010/c2_5_10_con reserva.xls"))
@@ -226,7 +226,7 @@ data_eam_2010 <- eam_2010 %>% filter(departamento %in% nom_dpto$nivel_label) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2009
+#Producción 2009
 #----------------------------------
 
 eam2009 <- read_excel(glue("{datos_ori}/EAM 2009 Editados 270911/c2_5_09_con reserva.xls"))
@@ -235,7 +235,7 @@ eam_2009 <- eam2009 %>% .[ -c(1:3),] %>% janitor::row_to_names(row_number = 1) %
   .[ -c(1:3),] %>% .[ -c(2),] %>% .[ ,-c(2:7)] %>% janitor::clean_names() %>% mutate(time = "2009")
 
 
-nom_dpto <- read_xlsx("C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
+nom_dpto <- read_xlsx("Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
 
 eam_2009$departamento[eam_2009$departamento == "Total nacional"] <- "Nacional"
 eam_2009$departamento[eam_2009$departamento == "Valle"] <- "Valle del Cauca"
@@ -248,7 +248,7 @@ data_eam_2009 <- eam_2009 %>% filter(departamento %in% nom_dpto$nivel_label) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------------------
-#Establecimientos por departamento
+#Producción por departamento
 #----------------------------------------------
 
 data_eam_dpto <- bind_rows(data_eam_2009, data_eam_2010, data_eam_2011, data_eam_2012, data_eam_2013,
@@ -258,7 +258,7 @@ data_eam_dpto <- bind_rows(data_eam_2009, data_eam_2010, data_eam_2011, data_eam
 write_csv(data_eam_dpto, glue("{datos}/base_produccion_dpto_2009-2019.csv"))
 
 #--------------------------------------
-#Establecimientos nacional
+#Producción nacional
 #--------------------------------------
 
 eam_2009 <- eam_2009 %>% rename( departamentos = "departamento")
@@ -282,7 +282,7 @@ write_csv(data_eam_nac, glue("{datos}/base_produccion_col_2009-2019.csv"))
 #Áreas metropolitanas y ciudades
 #-------------------------------
 #----------------------------------
-#Establecimientos 2019
+#Producción 2019
 #----------------------------------
 
 rm(list = ls())
@@ -303,7 +303,7 @@ data_eam_2019 <- eam_pers %>% mutate(id_data = "4", variable = "produccion", id_
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2018
+#Producción 2018
 #----------------------------------
 
 eam2018 <- read_xlsx(glue("{datos_ori}/Anexos_EAM_principales_variables_2018.xlsx"), sheet = "2.6")
@@ -323,7 +323,7 @@ data_eam_2018 <- eam_2018 %>% mutate(id_data = "4", variable = "produccion", id_
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2017
+#Producción 2017
 #----------------------------------
 
 eam2017 <- read_xlsx(glue("{datos_ori}/Anexos_EAM_principales_variables_2017.xlsx"), sheet = "2.6")
@@ -344,7 +344,7 @@ data_eam_2017 <- eam_2017 %>% mutate(id_data = "4", variable = "produccion", id_
 
 
 #----------------------------------
-#Establecimientos 2016
+#Producción 2016
 #----------------------------------
 
 eam2016 <- read_xlsx(glue("{datos_ori}/Anexos_EAM_principales_variables_2016.xlsx"), sheet = "2.6")
@@ -364,7 +364,7 @@ data_eam_2016 <- eam_2016 %>% mutate(id_data = "4", variable = "produccion", id_
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2015
+#Producción 2015
 #----------------------------------
 
 eam2015 <- read_excel(glue("{datos_ori}/Anexos_EAM_principales_variables (1).xls"), sheet = "2.6")
@@ -383,7 +383,7 @@ data_eam_2015 <- eam_2015 %>% mutate(id_data = "4", variable = "produccion", id_
   rename(nivel_label = `Area Metropolitana`, value = Producción) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 #----------------------------------
-#Establecimientos 2014
+#Producción 2014
 #----------------------------------
 
 eam2014 <- read_excel(glue("{datos_ori}/Anexos_EAM_2014_def/Anexos EAM 2014/c2_6_14.xls"))
@@ -404,7 +404,7 @@ data_eam_2014 <- eam_2014 %>% mutate(id_data = "4", variable = "produccion", id_
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2013
+#Producción 2013
 #----------------------------------
 
 eam2013 <- read_excel(glue("{datos_ori}/Anexos_2013/Anexos EAM 2013 definitivos/c2_6_13.xls"))
@@ -425,7 +425,7 @@ data_eam_2013 <- eam_2013 %>% mutate(id_data = "4", variable = "produccion", id_
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2012
+#Producción 2012
 #----------------------------------
 
 eam2012 <- read_excel(glue("{datos_ori}/Anex_2012def/ANEXOS EAM 2012/c2_6_12_con reserva.xls"))
@@ -445,7 +445,7 @@ data_eam_2012 <- eam_2012 %>% mutate(id_data = "4", variable = "produccion", id_
   rename(nivel_label = area_metropolitana, value = produccion) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 #----------------------------------
-#Establecimientos 2011
+#Producción 2011
 #----------------------------------
 
 eam2011 <- read_excel(glue("{datos_ori}/Anexos_2011def/CUADROS EAM/c2_6_11 con reserva.xls"))
@@ -468,7 +468,7 @@ data_eam_2011 <- eam_2011 %>% mutate(id_data = "4", variable = "produccion", id_
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 #----------------------------------
-#Establecimientos 2010
+#Producción 2010
 #----------------------------------
 
 eam2010 <- read_excel(glue("{datos_ori}/Anexos_2010/c2_6_10_con reserva.xls"))
@@ -488,7 +488,7 @@ data_eam_2010 <- eam_2010 %>% mutate(id_data = "4", variable = "produccion", id_
   rename(nivel_label = area_metropolitana, value = produccion) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 #----------------------------------
-#Establecimientos 2009
+#Producción 2009
 #----------------------------------
 
 eam2009 <- read_excel(glue("{datos_ori}/EAM 2009 Editados 270911/c2_6_09_con reserva.xls"))
@@ -508,7 +508,7 @@ data_eam_2009 <- eam_2009 %>% mutate(id_data = "4", variable = "produccion", id_
   rename(nivel_label = area_metropolitana, value = produccion) %>% 
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 #---------------------------------------------------------------
-#Establecimientos por área metropolitana y ciudades
+#Producción por área metropolitana y ciudades
 #---------------------------------------------------------------
 
 data_eam_A.M <- bind_rows(data_eam_2009, data_eam_2010, data_eam_2011, data_eam_2012, data_eam_2013,

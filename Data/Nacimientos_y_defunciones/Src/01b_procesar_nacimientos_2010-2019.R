@@ -1,6 +1,6 @@
 #-------------------------------------------------------#
 # Pulso Social BID ----
-# Ultima fecha de modificacion: 22 sept, 2021
+# Ultima fecha de modificacion: 27 sept, 2021
 # Procesamiento de datos de Defunciones y Nacimientos 2010-2018 + 2019
 # Nota: 2020 no tiene aun la informacion de nacimientos por grupo de edad de la madre
 #-------------------------------------------------------#
@@ -69,16 +69,16 @@ years <- c(2010:2018)
 nac_col <- lapply(years, function(x){
   
   if(x < 2014){
-    lista <- list.files(path = glue("{datos_ori}/{x}"), pattern = "Cuadro7_.*")
+    lista <- list.files(path = glue("{datos_ori}/{x}/Nacimientos"), pattern = "Cuadro7_.*")
   } 
   if(x >= 2014 & x < 2019){
-    lista <- list.files(path = glue("{datos_ori}/{x}"), pattern = "Cuadro7-.*")
+    lista <- list.files(path = glue("{datos_ori}/{x}/Nacimientos"), pattern = "Cuadro7-.*")
   }
   
   print(x)
   print(lista)
   
-  data <- read_excel(glue("{datos_ori}/{x}/{lista}"), sheet = "00") %>%
+  data <- read_excel(glue("{datos_ori}/{x}/Nacimientos/{lista}"), sheet = "00") %>%
     drop_na(`...4`) %>% janitor::row_to_names(row_number = 1) %>% janitor::clean_names() %>%
     select(de_15_19_anos) %>%
     rename(nacimientos = de_15_19_anos) %>%
@@ -118,16 +118,16 @@ nac_dpto <- lapply(years, function(y){
   # Abrir cada anio
   print(y)
   if(y < 2014){
-    lista <- list.files(path = glue("{datos_ori}/{y}"), pattern = "Cuadro7_.*")
+    lista <- list.files(path = glue("{datos_ori}/{y}/Nacimientos"), pattern = "Cuadro7_.*")
   } 
   if(y >= 2014 & y < 2019){
-    lista <- list.files(path = glue("{datos_ori}/{y}"), pattern = "Cuadro7-.*")
+    lista <- list.files(path = glue("{datos_ori}/{y}/Nacimientos"), pattern = "Cuadro7-.*")
   }
   
   # Abrir cada departamento, en el anio elegido
   data_dpto <- lapply(lista_dpto, function(x){
     
-    data <- read_excel(glue("{datos_ori}/{y}/{lista}"), sheet = x) %>%
+    data <- read_excel(glue("{datos_ori}/{y}/Nacimientos/{lista}"), sheet = x) %>%
       drop_na(`...4`) %>% janitor::row_to_names(row_number = 1) %>% janitor::clean_names() %>%
       select(na, de_15_19_anos) %>%
       rename(dpto = na, nacimientos = de_15_19_anos) %>%
@@ -165,16 +165,16 @@ nac_mpio <- lapply(years, function(y){
   # Abrir cada anio
   print(y)
   if(y < 2014){
-    lista <- list.files(path = glue("{datos_ori}/{y}"), pattern = "Cuadro7_.*")
+    lista <- list.files(path = glue("{datos_ori}/{y}/Nacimientos"), pattern = "Cuadro7_.*")
   } 
   if(y >= 2014 & y < 2019){
-    lista <- list.files(path = glue("{datos_ori}/{y}"), pattern = "Cuadro7-.*")
+    lista <- list.files(path = glue("{datos_ori}/{y}/Nacimientos"), pattern = "Cuadro7-.*")
   }
   
   # Abrir cada departamento, en el anio elegido
   data_dpto <- lapply(lista_dpto, function(x){
     
-    data <- read_excel(glue("{datos_ori}/{y}/{lista}"), sheet = x) %>%
+    data <- read_excel(glue("{datos_ori}/{y}/Nacimientos/{lista}"), sheet = x) %>%
       drop_na(`...4`) %>% janitor::row_to_names(row_number = 1) %>% janitor::clean_names() %>%
       # select(na, de_15_19_anos) %>%
       rename(mpio = na, nacimientos = de_15_19_anos) %>%

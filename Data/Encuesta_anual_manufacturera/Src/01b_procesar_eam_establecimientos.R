@@ -13,11 +13,11 @@ rm(list=ls())
 pacman::p_load(tidyverse, glue, readxl)
 #.rs.restartR()
 
-datos_ori <- "C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Data/Encuesta_anual_manufacturera/Input"
-datos <- "C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Data/Encuesta_anual_manufacturera/Output"
+datos_ori <- "Data/Encuesta_anual_manufacturera/Input"
+datos <- "Data/Encuesta_anual_manufacturera/Output"
 options(scipen = 999)
 
-nom_dpto <- read_xlsx("C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
+nom_dpto <- read_xlsx("Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
 
 #----------------------------------
 #Establecimientos 2019
@@ -283,7 +283,7 @@ eam_2009$`Numero de`= as.numeric(eam_2009$`Numero de`)
 
 eam_2009$Departamento [eam_2009$Departamento == "Total nacional"] <- "Nacional"
 
-nom_dpto <- read_xlsx("C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
+nom_dpto <- read_xlsx("Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
 
 eam_2009$Departamento[eam_2009$Departamento == "Valle"] <- "Valle del Cauca"
 eam_2009$Departamento[eam_2009$Departamento == "Bogotá"] <- "Bogotá D.C."
