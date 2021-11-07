@@ -85,7 +85,7 @@ data_google <- data_coords %>%
   mutate(coords_des = paste(as.character(lat_des), as.character(lon_des), sep=",")) 
 
 # Calcular distancias en automovil, domingo a las 11pm
-key <- "AIzaSyDgA1BS9kykm5iUbV98us-d0NXiV4G3NCM"
+key <- ""
 set.api.key(key)
 base_dist <- gmapsdistance(data_google$coords_ori, data_google$coords_des, 
                            combinations = "pairwise", mode = "driving",
