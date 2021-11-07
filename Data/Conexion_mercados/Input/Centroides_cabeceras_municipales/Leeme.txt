@@ -1,0 +1,5 @@
+Origen de los datos: \\wcartsrv\CEER\Pasantes_2018\Sara_Ovallos_Bencardino\CAPACITACIÓN ARGIS - JAVIER PEREZ\MDI
+
+En el shape pladiv_label (punto) van los nombres de municipios.
+En el shape plavia_annotationblank (linea) van los nombres de rios, vias, etc..
+

@@ -1,6 +1,6 @@
 #-------------------------------------------------------#
 # Pulso Social BID ----
-# Ultima fecha de modificacion: 15 sept, 2021
+# Ultima fecha de modificacion: 20 oct, 2021
 # Procesamiento de datos de incidencia de pobreza monetaria y pobreza extrema
 #-------------------------------------------------------#
 
@@ -18,6 +18,8 @@ pacman::p_load(tidyverse, glue, readxl)
 
 datos_ori <- "Data/Pobreza_monetaria/Input"
 datos <- "Data/Pobreza_monetaria/Output"
+path <- getwd()
+path <- gsub("01_Datos", "02_Descriptivas", path)
 options(scipen = 999)
 
 #-------------------------------------------------------#
@@ -25,7 +27,7 @@ options(scipen = 999)
 #-------------------------------------------------------#
 
 # Etiquetas nombres departamentos y zonas
-nom_dpto <- read_xlsx("Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
+nom_dpto <- read_xlsx(glue("{path}/Herramientas/Input/base_nombres_departamentos.xlsx"))
 zonas <- c("Cabeceras", "Otras cabeceras", "Centros poblados y rural disperso")
 
 #--------------------------#
@@ -90,17 +92,16 @@ monetaria <- monetaria %>%
 # Areas metropolitanas
 monetaria_am <- monetaria %>% 
   filter(nivel_label != "Nacional" & !(nivel_label %in% zonas)) %>%
-  mutate(id_data = 13, nivel_value = glue("{nivel_label}_pobreza"), variable = "pobreza_monetaria", 
+  mutate(id_data = 13, nivel_value = nivel_label, variable = "pobreza_monetaria", 
          value_label = "Pobreza monetaria (%)", id_nivel = "area_metropolitana", 
-         id_time = 1, time = year, value = pobreza, nivel_value = gsub(" ", "_", nivel_value)) %>%
+         id_time = 1, time = year, value = pobreza) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Cabeceras y zonas rurales (centros poblados y rural disperso)
 monetaria_zonas <- monetaria %>% 
   filter(nivel_label %in% zonas) %>%
   mutate(id_data = 13, variable = "pobreza_monetaria", value_label = "Pobreza monetaria (%)", 
-         id_nivel = "zona", id_time = 1, time = year, nivel_value = glue("{nivel_label}_pobreza"), 
-         value = pobreza, nivel_value = gsub(" ", "_", nivel_value)) %>%
+         id_nivel = "zona", id_time = 1, time = year, nivel_value = nivel_label, value = pobreza) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Exportar base
@@ -179,17 +180,16 @@ extrema <- extrema %>%
 # Areas metropolitanas
 extrema_am <- extrema %>% 
   filter(nivel_label != "Nacional" & !(nivel_label %in% zonas)) %>%
-  mutate(id_data = 13, nivel_value = glue("{nivel_label}_extrema"), variable = "pobreza_extrema", 
+  mutate(id_data = 13, nivel_value = nivel_label, variable = "pobreza_extrema", 
          value_label = "Pobreza extrema (%)", id_nivel = "area_metropolitana", 
-         id_time = 1, time = year, value = pobreza, nivel_value = gsub(" ", "_", nivel_value)) %>%
+         id_time = 1, time = year, value = pobreza) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Cabeceras y zonas rurales (centros poblados y rural disperso)
 extrema_zonas <- extrema %>% 
   filter(nivel_label %in% zonas) %>%
   mutate(id_data = 13, variable = "pobreza_extrema", value_label = "Pobreza extrema (%)", 
-         id_nivel = "zona", id_time = 1, time = year, nivel_value = glue("{nivel_label}_extrema"), 
-         value = pobreza, nivel_value = gsub(" ", "_", nivel_value)) %>%
+         id_nivel = "zona", id_time = 1, time = year, nivel_value = nivel_label, value = pobreza) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Exportar base

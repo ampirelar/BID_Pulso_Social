@@ -15,12 +15,14 @@ pacman::p_load(tidyverse, glue, readxl)
 
 datos_ori <- "Data/Indice_pobreza_multidimensional/Input"
 datos <- "Data/Indice_pobreza_multidimensional/Output"
+path <- getwd()
+path <- gsub("01_Datos", "02_Descriptivas", path)
 options(scipen = 999)
 
-nom_dpto <- read_xlsx("Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
+nom_dpto <- read_xlsx(glue("{path}/Herramientas/Input/base_nombres_departamentos.xlsx"))
 
 #----------------------------------
-#Hacinamiento crítico zonas
+#Hacinamiento cr?tico zonas
 #----------------------------------
 
 ipm <- read_excel(glue("{datos_ori}/anexo_nal_pobreza_multidimensional_20.xls"), sheet = "IPM_Variables") %>%
@@ -33,13 +35,13 @@ ipm$`2017`[is.na(ipm$`2017`)] <- "."
 
 ipm <- ipm %>% 
   rename_at(vars(contains("20")), funs(paste0("year_", .))) %>% 
-  janitor::clean_names() %>% filter(variable == "Analfabetismo" | variable == "Hacinamiento crítico") %>%
-  fill(zona,.direction = "down") %>% mutate(zona = gsub("\\*", "", zona)) %>% filter(variable == "Hacinamiento crítico") %>%
+  janitor::clean_names() %>% filter(variable == "Analfabetismo" | variable == "Hacinamiento crÃ­tico") %>%
+  fill(zona,.direction = "down") %>% mutate(zona = gsub("\\*", "", zona)) %>% filter(variable == "Hacinamiento crÃ­tico") %>%
   mutate(across(starts_with("year"), as.numeric)) %>%
   pivot_longer(cols = starts_with("year"), names_to = "year", values_to = "value") %>%
   mutate(year = as.numeric(gsub("year_", "", year))) %>%
   rename(nivel_label = zona) %>%
-  mutate(time = year, id_data = 15, id_time = 1, variable = "hacinamiento", value_label = "Hacinamiento crítico (%)")
+  mutate(time = year, id_data = 15, id_time = 1, variable = "hacinamiento", value_label = "Hacinamiento crÃ­tico (%)")
 
 # Nacional
 ipm_col <- ipm %>% 
@@ -61,20 +63,20 @@ write_csv(ipm_col, glue("{datos}/base_hacinamiento_col_2010-2020.csv"))
 write_csv(ipm_zonas, glue("{datos}/base_hacinamiento_zonas_2010-2020.csv"))
 
 #----------------------------------
-#Hacinamiento crítico departamentos
+#Hacinamiento cr?tico departamentos
 #----------------------------------
 
 ipm <- read_excel(glue("{datos_ori}/anexo_dptal_pobreza_multidimensional_20.xls"), sheet = "IPM_Variables_Departamento ") %>%
   drop_na(`...3`) %>% janitor::row_to_names(row_number = 1)
 
-ipm_$nivel_label[ipm_$nivel_label == "Bogotá"] <- "Bogotá D.C."
+ipm_$nivel_label[ipm_$nivel_label == "Bogot?"] <- "Bogot? D.C."
 
 ipm <- ipm %>% janitor::row_to_names(row_number = 1) %>% janitor::clean_names() %>%
   rename(nivel_label = departamento, total_2018 = total, total_2019 = total_2, total_2020 = total_3) %>%
-  select(nivel_label, variable, starts_with("total")) %>% filter(variable == "Analfabetismo" | variable == "Hacinamiento crítico") %>%
-  fill(nivel_label,.direction = "down") %>% filter(variable == "Hacinamiento crítico") 
+  select(nivel_label, variable, starts_with("total")) %>% filter(variable == "Analfabetismo" | variable == "Hacinamiento cr?tico") %>%
+  fill(nivel_label,.direction = "down") %>% filter(variable == "Hacinamiento cr?tico") 
 
-ipm$nivel_label[ipm$nivel_label == "Bogotá"] <- "Bogotá D.C."
+ipm$nivel_label[ipm$nivel_label == "Bogot?"] <- "Bogot? D.C."
 
 ipm <- ipm %>% mutate(across(.cols = starts_with("total"), .fns = as.numeric)) %>%
   left_join(nom_dpto, by = "nivel_label") %>%
@@ -82,7 +84,7 @@ ipm <- ipm %>% mutate(across(.cols = starts_with("total"), .fns = as.numeric)) %
 
 ipm_dpto <- ipm %>%
   mutate(time = as.numeric(gsub("total_", "", time)), id_data = 15, id_time = 1, 
-         variable = "hacinamiento", value_label = "Hacinamiento crítico (%)", id_nivel = "dpto") %>%
+         variable = "hacinamiento", value_label = "Hacinamiento cr?tico (%)", id_nivel = "dpto") %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Exportar datos

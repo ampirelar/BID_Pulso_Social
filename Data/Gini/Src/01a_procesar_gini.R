@@ -1,6 +1,6 @@
 #-------------------------------------------------------#
 # Pulso Social BID ----
-# Ultima fecha de modificacion: 21 sept, 2021
+# Ultima fecha de modificacion: 20 oct, 2021
 # Procesamiento de datos de Indice GINI
 #-------------------------------------------------------#
 
@@ -18,6 +18,8 @@ pacman::p_load(tidyverse, glue, readxl)
 
 datos_ori <- "Data/Gini/Input"
 datos <- "Data/Gini/Output"
+path <- getwd()
+path <- gsub("01_Datos", "02_Descriptivas", path)
 options(scipen = 999)
 
 #-------------------------------------------------------#
@@ -25,7 +27,7 @@ options(scipen = 999)
 #-------------------------------------------------------#
 
 # Etiquetas nombres departamentos y zonas
-nom_dpto <- read_xlsx("Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
+nom_dpto <- read_xlsx(glue("{path}/Herramientas/Input/base_nombres_departamentos.xlsx"))
 zonas <- c("Cabeceras", "Otras cabeceras", "Centros poblados y rural disperso")
 
 # Leer base original
@@ -84,17 +86,16 @@ gini <- gini %>%
 # Areas metropolitanas
 gini_am <- gini %>% 
   filter(nivel_label != "Nacional" & !(nivel_label %in% zonas)) %>%
-  mutate(id_data = 13, nivel_value = glue("{nivel_label}_gini"), variable = "gini", 
+  mutate(id_data = 13, nivel_value = nivel_label, variable = "gini", 
          value_label = "Coeficiente de Gini", id_nivel = "area_metropolitana", 
-         id_time = 1, time = year, value = gini, nivel_value = gsub(" ", "_", nivel_value)) %>%
+         id_time = 1, time = year, value = gini) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Cabeceras y zonas rurales (centros poblados y rural disperso)
 gini_zonas <- gini %>% 
   filter(nivel_label %in% zonas) %>%
   mutate(id_data = 13, variable = "gini", value_label = "Coeficiente de Gini", 
-         id_nivel = "zona", id_time = 1, time = year, nivel_value = glue("{nivel_label}_gini"), 
-         value = gini, nivel_value = gsub(" ", "_", nivel_value)) %>%
+         id_nivel = "zona", id_time = 1, time = year, nivel_value = nivel_label, value = gini) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Exportar base
@@ -139,7 +140,8 @@ gini$nivel_value[str_detect(gini$nivel_label, "Suriname")] <- 597
 gini$nivel_value[str_detect(gini$nivel_label, "Micronesia")] <- 691
 
 gini_country <- gini %>%
-  select(id_data, variable, id_nivel, nivel_label, nivel_value, id_time, time, value_label, value)
+  mutate(nivel_value = nivel_label) %>%
+  select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Exportamos datos
 write_csv(gini_country, glue("{datos}/base_gini_pais_1981-2019.csv"))

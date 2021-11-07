@@ -16,8 +16,8 @@ pacman::p_load(tidyverse, glue, readxl, janitor)
 # paths ----
 #--------------------------#
 
-datos_ori <- "C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Data/Nacimientos_y_defunciones/Input"
-datos <- "C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Data/Nacimientos_y_defunciones/Output"
+datos_ori <- "Data/Nacimientos_y_defunciones/Input"
+datos <- "Data/Nacimientos_y_defunciones/Output"
 options(scipen = 999)
 
 #-------------------------------------------------------#
@@ -93,7 +93,7 @@ rm(nac_col, nac_col19, def_col)
 #-------------------------------------------------------#
 
 # Codigos de departamento y municipio
-cod_dpto <- read_csv(glue("C:/Users/DAVID/OneDrive - Universidad EAFIT/2021_BID_PulsoSocial/01_Analisis_empirico/01_Datos/Descriptives/Herramientas/Input/base_nombres_codigos_dpto_mpio.csv")) %>%
+cod_dpto <- read_csv(glue("Descriptives/Herramientas/Input/base_nombres_codigos_dpto_mpio.csv")) %>%
   select(cod_dpto, cod_mpio) %>% rename(nivel_value = cod_mpio)
 
 # Lista de codigos departamentos en el estilo de datos DANE
@@ -216,6 +216,7 @@ def_mpio <- lapply(years, function(y){
   
 }) %>% bind_rows()
 
+#Nacimientos mpio
 
 nac_mpio <- lapply(years, function(y){
   

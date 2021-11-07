@@ -1,6 +1,6 @@
 #-------------------------------------------------------#
 # Pulso Social BID ----
-# Ultima fecha de modificacion: 21 sept, 2021
+# Ultima fecha de modificacion: 20 oct, 2021
 # Procesamiento de datos de Necesidades Basicas Insatisfechas
 #-------------------------------------------------------#
 
@@ -18,6 +18,8 @@ pacman::p_load(tidyverse, glue, readxl)
 
 datos_ori <- "Data/Necesidades_basicas_insatisfechas/Input"
 datos <- "Data/Necesidades_basicas_insatisfechas/Output"
+path <- getwd()
+path <- gsub("01_Datos", "02_Descriptivas", path)
 options(scipen = 999)
 
 #-------------------------------------------------------#
@@ -53,7 +55,7 @@ rm(list = ls(pattern = "nbi"))
 #--------------------------#
 
 # Etiquetas nombres departamentos y zonas
-nom_dpto <- read_xlsx("Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
+nom_dpto <- read_xlsx(glue("{path}/Herramientas/Input/base_nombres_departamentos.xlsx"))
 
 # Leer base original y organizar
 nbi <- read_excel(glue("{datos_ori}/CNPV-2018-NBI.xlsx")) %>%
@@ -83,18 +85,34 @@ nbi_zonas <- nbi %>%
   mutate(id_nivel = "zona") %>%
   select(-nbi_total) %>%
   pivot_longer(cols = c(nbi_cabe, nbi_rural), names_to = "zona", values_to = "value") %>%
-  mutate(nivel_value = ifelse(zona == "nbi_cabe", "Cabeceras", "Centros Poblados y Rural Disperso"),
-         nivel_value = glue("{nivel_value}_nbi"), nivel_value = gsub(" ", "_", nivel_value)) %>%
+  mutate(nivel_value = ifelse(zona == "nbi_cabe", "Cabeceras", "Centros Poblados y Rural Disperso")) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Exportar datos
 write_csv(nbi_dpto, glue("{datos}/base_nbi_dpto_2018.csv"))
 write_csv(nbi_col, glue("{datos}/base_nbi_col_2018.csv"))
 write_csv(nbi_zonas, glue("{datos}/base_nbi_2018.csv"))
+rm(list = ls(pattern = "nbi"))
 
 #-------------------------------------------------------#
 # 2. Etnia ----
 #-------------------------------------------------------#
+
+# Codigos mpios
+nom_mpio <- read_csv(glue("{path}/Herramientas/Input/base_nombres_codigos_dpto_mpio.csv")) %>%
+  dplyr::select(cod_dpto, cod_mpio) %>%
+  rename(nivel_value = cod_mpio)
+
+# Proyecciones de poblacion
+pob <- read_csv("Data/Proyecciones_poblacion/Output/base_proyecciones_poblacion_mpio_1985-2035.csv") %>%
+  dplyr::filter(time == 2018) %>%
+  rename(poblacion = value) %>%
+  dplyr::select(nivel_value, poblacion) %>%
+  left_join(nom_mpio, by = "nivel_value") %>%
+  group_by(cod_dpto) %>%
+  summarise(poblacion = sum(poblacion)) %>%
+  ungroup() %>%
+  rename(nivel_value = cod_dpto)
 
 #--------------------------#
 # A. Municipal ----
@@ -128,16 +146,29 @@ nbi <- nbi %>%
                                                         ifelse(etnia == "Ningún grupo étnico", 6,
                                                                ifelse(etnia == "Sin información", 99, NA))))))))
 
-# Base municipal
-nbi_mpio <- nbi %>%
-  mutate(nivel_value = glue("{nivel_value}_{etnia_val}")) %>%
-  mutate(id_data = 16, variable = "nbi", value_label = "NBI (%)", 
-         id_nivel = "mpio_etnia", id_time = 1, time = 2018) %>%
-  select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
-
-# Exportar datos
-write_csv(nbi_mpio, glue("{datos}/base_nbi_mpio_etnia_2018.csv"))
-rm(list = ls(pattern = "nbi"))
+# # Base municipal
+# nbi_mpio <- nbi %>%
+#   left_join(pob, by = "nivel_value") %>%
+#   mutate(personas = (value/100)*poblacion) %>%
+#   dplyr::filter(etnia_val != 99) %>%
+#   mutate(nivel_value = ifelse(etnia_val < 6, glue("{nivel_value}_1"), glue("{nivel_value}_2"))) %>%
+#   group_by(nivel_value) %>%
+#   summarise(pob_nbi = sum(personas), poblacion = max(poblacion)) %>%
+#   ungroup() %>%
+#   mutate(value = 100*(pob_nbi/poblacion))
+# 
+# 
+# ,
+#          id_data = 16, variable = "nbi", value_label = "NBI (%)", 
+#          id_nivel = "mpio_etnia", id_time = 1, time = 2018) %>%
+#   group_by(nivel_value)
+# 
+# %>%
+#   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
+# 
+# # Exportar datos
+# write_csv(nbi_mpio, glue("{datos}/base_nbi_mpio_etnia_2018.csv"))
+# rm(list = ls(pattern = "nbi"))
 
 #--------------------------#
 # B. Departamental ----
@@ -152,6 +183,14 @@ nbi <- read_excel(glue("{datos_ori}/CNPV-2018-NBI-AUTORRECONOCIMIENTO-ETNICO.xls
   select(nivel_value, etnia, value) %>%
   mutate(nivel_value = as.numeric(nivel_value), value = as.numeric(value))
 
+pob <- read_excel(glue("{datos_ori}/CNPV-2018-NBI-AUTORRECONOCIMIENTO-ETNICO.xlsx"), sheet = "DEPARTAMENTAL") %>%
+  drop_na(`...3`) %>% janitor::row_to_names(row_number = 1) %>% janitor::clean_names() %>%
+  select(-starts_with(c("na", "personas"))) %>%
+  rename(poblacion = total_personas_en_hogares_particulares,
+         nivel_value = codigo_divipola, etnia = autoreconocimiento_etnico) %>%
+  select(nivel_value, etnia, poblacion) %>%
+  mutate(nivel_value = as.numeric(nivel_value), poblacion = as.numeric(poblacion))
+
 # Organizamos categorias de etnias
 nbi <- nbi %>%
   mutate(etnia_val = ifelse(etnia == "Indígena", 1,
@@ -162,11 +201,17 @@ nbi <- nbi %>%
                                                         ifelse(etnia == "Ningún grupo étnico", 6,
                                                                ifelse(etnia == "Sin información", 99, NA))))))))
 
-# Base municipal
+# Base departamental
 nbi_dpto <- nbi %>%
-  mutate(nivel_value = glue("{nivel_value}_{etnia_val}")) %>%
-  mutate(id_data = 16, variable = "nbi", value_label = "NBI (%)", 
-         id_nivel = "dpto_etnia", id_time = 1, time = 2018) %>%
+  left_join(pob, by = c("nivel_value", "etnia")) %>%
+  mutate(personas = (value/100)*poblacion) %>%
+    dplyr::filter(etnia_val != 99) %>%
+    mutate(nivel_value = ifelse(etnia_val < 6, glue("{nivel_value}_1"), glue("{nivel_value}_2"))) %>%
+    group_by(nivel_value) %>%
+    summarise(pob_nbi = sum(personas), poblacion = sum(poblacion)) %>%
+    ungroup() %>%
+    mutate(value = 100*(pob_nbi/poblacion), id_data = 16, variable = "nbi", value_label = "NBI (%)",
+           id_nivel = "dpto_etnia", id_time = 1, time = 2018) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Exportar datos
@@ -176,6 +221,11 @@ rm(list = ls(pattern = "nbi"))
 #--------------------------#
 # C. Nacional ----
 #--------------------------#
+
+pob <- pob %>%
+  group_by(etnia) %>%
+  summarise(poblacion = sum(poblacion)) %>%
+  ungroup()
 
 # Leer base original
 nbi <- read_excel(glue("{datos_ori}/CNPV-2018-NBI-AUTORRECONOCIMIENTO-ETNICO.xlsx"), sheet = "TOTAL NACIONAL") %>%
@@ -199,8 +249,14 @@ nbi <- nbi %>%
 # Base municipal
 nbi_col <- nbi %>%
   drop_na(etnia_val) %>%
-  mutate(nivel_value = glue("{nivel_value}_{etnia_val}")) %>%
-  mutate(id_data = 16, variable = "nbi", value_label = "NBI (%)", 
+  left_join(pob, by = c("etnia")) %>%
+  mutate(personas = (value/100)*poblacion) %>%
+  dplyr::filter(etnia_val != 99) %>%
+  mutate(nivel_value = ifelse(etnia_val < 6, glue("{nivel_value}_1"), glue("{nivel_value}_2"))) %>%
+  group_by(nivel_value) %>%
+  summarise(pob_nbi = sum(personas), poblacion = sum(poblacion)) %>%
+  ungroup() %>%
+  mutate(value = 100*(pob_nbi/poblacion), id_data = 16, variable = "nbi", value_label = "NBI (%)", 
          id_nivel = "nacional_etnia", id_time = 1, time = 2018) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 

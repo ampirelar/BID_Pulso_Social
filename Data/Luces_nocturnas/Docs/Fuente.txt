@@ -1,0 +1,12 @@
+Datos de luces nocturnas (Nighttime Light map de Visible and Infrared Imaging Suite (VIIRS))
+Capa descargada: Anual 2012-2020 "average-masked"
+
+Pagina web:
+https://eogdata.mines.edu/products/vnl/#annual_v2
+
+Paper:
+Masked average radiance: with background, biomass burning, and aurora zeroed out
+https://doi.org/10.3390/rs13050922
+
+Extraido de: https://eogdata.mines.edu/nighttime_light/annual/v20/
+Descargado el: 04/10/2021

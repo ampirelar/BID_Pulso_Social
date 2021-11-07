@@ -9,7 +9,7 @@
 #--------------------------#
 
 rm(list=ls())
-pacman::p_load(tidyverse, glue, readxl, janitor, sf)
+pacman::p_load(tidyverse, glue, readxl, janitor, sf, rgeos)
 # .rs.restartR()
 
 #--------------------------#
@@ -30,16 +30,14 @@ options(scipen = 999)
 ind <- st_read(glue("{datos_ori}/VlnrAmbn_2071_2100.shp")) %>% 
   clean_names() %>% dplyr::select(-c(objectid, ruleid))
 
-# ind <- st_transform(ind, crs = 4326)
-ind <- ind %>% mutate(area_vul_m2 = st_area(geometry), area_vul_km2 = area_vul_m2/1000000)
-ind$area_vul_km2 <- units::set_units(ind$area_vul_km2, NULL)
+# Corregimos algunos errores en definicion poligonos
+ind <- st_make_valid(ind)
+ind <- ind %>% select(-starts_with("shape"))
 head(ind)
 
-# Corregimos algunos errores en definicion poligonos
-# ind <- st_make_valid(ind)
 # Guardamos shp corregido
 # saveRDS(ind, glue("{datos}/indice_vulnerabilidad_climatica.rds"))
-# ind <- readRDS(glue("{datos}/indice_vulnerabilidad_climatica.rds"))
+ind <- readRDS(glue("{datos}/indice_vulnerabilidad_climatica.rds"))
 
 # Shp de municipios
 mpio <- st_read("Data/Mapas/Output/mapa_municipios_colombia.shp") %>% 
@@ -67,33 +65,45 @@ dpto <- st_transform(dpto, crs = st_crs(ind))
 # E.g. el 85% del area del mpio tiene una vulnerabilidad "Muy alta"
 #-------------------------------------------------------#
 
-# Hacemos un join espacial entre mpios/dptos y poligonos de vulnerabilidad
-dpto_ind <- st_join(dpto, ind)
-st_geometry(dpto_ind) <- NULL
+# Interceptamos poligonos de vulnerabilidad climatica con poligonos administrativos
 
 # Departamental
-# Colapsamos area de categorias
-data_dpto <- dpto_ind %>% 
+dpto_ind <- st_intersection(dpto, ind)
+
+# Organizamos dataframe: colapsamos areas segun vulnerabilidad y calculamos % sobre area poligono
+data_dpto <- dpto_ind %>% mutate(area_clim = st_area(geometry), area_clim = area_clim/1000000)
+data_dpto$area_clim <- units::set_units(data_dpto$area_clim, NULL)
+st_geometry(data_dpto) <- NULL
+
+data_dpto <- data_dpto %>%
   group_by(nivel_value, vulnerable, area_km2) %>%
-  summarise(area_cat = sum(area_vul_km2)) %>%
+  summarise(area_clim = sum(area_clim)) %>%
   ungroup() %>%
   group_by(nivel_value) %>%
-  mutate(area_total = sum(area_cat)) %>%
+  mutate(area_total = sum(area_clim)) %>%
   ungroup() %>%
-  mutate(part_cat = 100*(area_cat/area_total))
+  mutate(part_cat = 100*(area_clim/area_total))
+
+table(data_dpto$vulnerable)
 
 # Municipal
-mpio_ind <- st_join(mpio, ind) 
-st_geometry(mpio_ind) <- NULL
+mpio_ind <- st_intersection(mpio, ind)
 
-data_mpio <- mpio_ind %>% 
+# Organizamos dataframe: colapsamos areas segun vulnerabilidad y calculamos % sobre area poligono
+data_mpio <- mpio_ind %>% mutate(area_clim = st_area(geometry), area_clim = area_clim/1000000)
+data_mpio$area_clim <- units::set_units(data_mpio$area_clim, NULL)
+st_geometry(data_mpio) <- NULL
+
+data_mpio <- data_mpio %>%
   group_by(nivel_value, vulnerable, area_km2) %>%
-  summarise(area_cat = sum(area_vul_km2)) %>%
+  summarise(area_clim = sum(area_clim)) %>%
   ungroup() %>%
   group_by(nivel_value) %>%
-  mutate(area_total = sum(area_cat)) %>%
+  mutate(area_total = sum(area_clim)) %>%
   ungroup() %>%
-  mutate(part_cat = 100*(area_cat/area_total))
+  mutate(part_cat = 100*(area_clim/area_total))
+
+table(data_mpio$vulnerable)
 
 #-------------------------------------------------------#
 # 3. Organizar bases ----

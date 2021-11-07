@@ -1,6 +1,6 @@
 #-------------------------------------------------------#
 # Pulso Social BID ----
-# Ultima fecha de modificacion: 20 sept, 2021
+# Ultima fecha de modificacion: 20 oct, 2021
 # Procesamiento de datos de lineas de pobreza monetaria y pobreza extrema
 #-------------------------------------------------------#
 
@@ -18,6 +18,8 @@ pacman::p_load(tidyverse, glue, readxl)
 
 datos_ori <- "Data/Pobreza_monetaria/Input"
 datos <- "Data/Pobreza_monetaria/Output"
+path <- getwd()
+path <- gsub("01_Datos", "02_Descriptivas", path)
 options(scipen = 999)
 
 #-------------------------------------------------------#
@@ -25,7 +27,7 @@ options(scipen = 999)
 #-------------------------------------------------------#
 
 # Etiquetas nombres departamentos y zonas
-nom_dpto <- read_xlsx("Descriptives/Herramientas/Input/base_nombres_departamentos.xlsx")
+nom_dpto <- read_xlsx(glue("{path}/Herramientas/Input/base_nombres_departamentos.xlsx"))
 zonas <- c("Cabeceras", "Otras cabeceras", "Centros poblados y rural disperso")
 
 #--------------------------#
@@ -61,8 +63,8 @@ monetaria_col <- monetaria %>% filter(nivel_label == "Total Nacional") %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Exportar base
-write_csv(monetaria_col, glue("{datos}/base_linea_pobreza_monetaria_col_2012-2020.csv"))
-write_csv(monetaria_dpto, glue("{datos}/base_linea_pobreza_monetaria_dpto_2012-2020.csv"))
+write_csv(monetaria_col, glue("{datos}/linea_pobreza_monetaria_col_2012-2020.csv"))
+write_csv(monetaria_dpto, glue("{datos}/linea_pobreza_monetaria_dpto_2012-2020.csv"))
 
 rm(list = ls(pattern = "monetaria"))
 
@@ -106,8 +108,8 @@ monetaria_zonas <- monetaria %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Exportar base
-write_csv(monetaria_am, glue("{datos}/base_linea_pobreza_monetaria_am_2012-2020.csv"))
-write_csv(monetaria_zonas, glue("{datos}/base_linea_pobreza_monetaria_zonas_2012-2020.csv"))
+write_csv(monetaria_am, glue("{datos}/linea_pobreza_monetaria_am_2012-2020.csv"))
+write_csv(monetaria_zonas, glue("{datos}/linea_pobreza_monetaria_zonas_2012-2020.csv"))
 
 rm(list = ls(pattern = "monetaria"))
 
@@ -148,8 +150,8 @@ extrema_col <- extrema %>% filter(nivel_label == "Total Nacional") %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Exportar base
-write_csv(extrema_col, glue("{datos}/base_linea_pobreza_extrema_col_2012-2020.csv"))
-write_csv(extrema_dpto, glue("{datos}/base_linea_pobreza_extrema_dpto_2012-2020.csv"))
+write_csv(extrema_col, glue("{datos}/linea_pobreza_extrema_col_2012-2020.csv"))
+write_csv(extrema_dpto, glue("{datos}/linea_pobreza_extrema_dpto_2012-2020.csv"))
 
 rm(list = ls(pattern = "extrema"))
 
@@ -195,7 +197,7 @@ extrema_zonas <- extrema %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Exportar base
-write_csv(extrema_am, glue("{datos}/base_linea_pobreza_extrema_am_2012-2020.csv"))
-write_csv(extrema_zonas, glue("{datos}/base_linea_pobreza_extrema_zonas_2012-2020.csv"))
+write_csv(extrema_am, glue("{datos}/linea_pobreza_extrema_am_2012-2020.csv"))
+write_csv(extrema_zonas, glue("{datos}/linea_pobreza_extrema_zonas_2012-2020.csv"))
 
 rm(list = ls(pattern = "extrema"))

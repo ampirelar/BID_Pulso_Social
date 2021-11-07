@@ -1,0 +1,26 @@
+%%%%%%%%%%%%%%%%%%%%%
+%% Instrucciones para correr archivos .sh en Windows
+%%%%%%%%%%%%%%%%%%%%%
+
+1. Instala cygwin en el computador
+Los archivos .sh funcionan en linux o Mac, pero windows no los entiende
+Cygwin permite correr este tipo de archivos.
+
+2. Ejecuta cygwin como administrador
+Click derecho sobre ícono de cygwin, "ejecutar como administrador"
+
+3. Define el path de la carpeta donde está tu script
+cd "C:\Users\anapi\OneDrive - Universidad EAFIT\2021_BID_PulsoSocial\01_Analisis_empirico\01_Datos\Data\Ofertas_laborales\Src"
+
+4. Define el path de R en tu computadora en la consola de cygwin. 
+PATH=$PATH:/cygdrive/c/Program\ Files/R/R-4.0.2/bin
+
+** python:
+PATH=$PATH:/cygdrive/c/Users/user/AppData/Local/Programs/Python/Python38-32
+
+5. Es posible que necesites instalar los paquetes de R en cygwin, hazlo de la forma
+R
+install.packages("readr", repos = "http://cran.us.r-project.org")
+
+6. Corre el archivo .sh
+sh test.sh

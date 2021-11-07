@@ -1,0 +1,35 @@
+---
+title: "Presentación Pulso Social"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE)
+pacman::p_load(tidyverse, glue, pulsosocialcolombia, colorspace)
+graficas <- "Data/Luces_nocturnas/Output"
+
+# Opciones graficas
+w <- 4.5*1.5
+h <- 3.2*1.5
+text <- 14
+d <- 900
+
+```
+
+## Librería Pulso Social
+
+Funciones para graficar.
+
+```{r cars, echo = TRUE}
+
+# 1:length(dic$id_data)
+lapply(4:5, function(x){
+  
+  pulso_trend(id = x, type = "line", type_p = "print")
+  # ggsave(glue("{graficas}/grafica_{x}.jpeg"), height = h, width = w*0.8, dpi = d)
+
+})
+
+
+```

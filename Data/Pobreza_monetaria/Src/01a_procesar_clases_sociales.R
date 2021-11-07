@@ -1,6 +1,6 @@
 #-------------------------------------------------------#
 # Pulso Social BID ----
-# Ultima fecha de modificacion: 14 sept, 2021
+# Ultima fecha de modificacion: 20 oct, 2021
 # Procesamiento de datos de Poblacion por clases sociales (pobreza monetaria)
 #-------------------------------------------------------#
 
@@ -74,34 +74,60 @@ rm(pobres, vulnerables, alta, media, pob, pob_long)
 # 2. Estadisticas por nivel de desagregacion ----
 #-------------------------------------------------------#
 
+# Poblacion total
+pob_total <- data_clases %>%
+  group_by(variable, year) %>%
+  summarise(poblacion_total = sum(poblacion, na.rm = T)) %>%
+  ungroup()
+
 # Total nacional
 clases_col <- data_clases %>% filter(variable == "Total nacional") %>%
-  mutate(id_data = 13, variable = "clase_social", value_label = "Población por clase social", 
-         id_nivel = "nacional", id_time = 1, time = year, clase = gsub(" ", "_", clase),
-         nivel_value = glue("col_{clase}"), value = poblacion) %>%
+  left_join(pob_total, by = c("variable", "year")) %>%
+  mutate(id_data = 13, variable = "clase_social", 
+  value_label = glue("Población por clase social (%) - {clase}"), 
+         id_nivel = "nacional", id_time = 1, time = year,
+         nivel_value = 1, value = 100*(poblacion/poblacion_total)) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Areas metropolitanas
 clases_am <- data_clases %>% 
   filter(variable != "Total nacional" & variable != "Cabeceras" & variable != "Centros poblados y rural disperso") %>%
-  mutate(id_data = 13, am = gsub(" ", "_", variable), variable = "clase_social", 
-         value_label = "Población por clase social", id_nivel = "area_metropolitana", 
-         id_time = 1, time = year, clase = gsub(" ", "_", clase),
-         nivel_value = glue("{am}_{clase}"), value = poblacion) %>%
+  left_join(pob_total, by = c("variable", "year")) %>%
+  mutate(id_data = 13, nivel_value = variable, variable = "clase_social", 
+         value_label = glue("Población por clase social (%) - {clase}"), 
+         id_nivel = "area_metropolitana", id_time = 1, time = year, 
+         clase = gsub(" ", "_", clase), value = 100*(poblacion/poblacion_total)) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
 # Cabeceras y zonas rurales (centros poblados y rural disperso)
 clases_zona <- data_clases %>% 
   filter(variable == "Cabeceras" | variable == "Centros poblados y rural disperso") %>%
-  mutate(id_data = 13, zona = gsub(" ", "_", variable), variable = "clase_social", 
-         value_label = "Población por clase social", id_nivel = "zona", 
-         id_time = 1, time = year, clase = gsub(" ", "_", clase),
-         nivel_value = glue("{zona}_{clase}"), value = poblacion) %>%
+  left_join(pob_total, by = c("variable", "year")) %>%
+  mutate(id_data = 13, nivel_value = variable, variable = "clase_social", 
+         value_label = glue("Población por clase social (%) - {clase}"), 
+         id_nivel = "zona", id_time = 1, time = year, 
+         value = 100*(poblacion/poblacion_total)) %>%
   select(id_data, variable, id_nivel, nivel_value, id_time, time, value_label, value)
 
-# Exportar base
-write_csv(clases_col, glue("{datos}/base_clases_sociales_col_2012-2020.csv"))
-write_csv(clases_am, glue("{datos}/base_clases_sociales_am_2012-2020.csv"))
-write_csv(clases_zona, glue("{datos}/base_clases_sociales_zona_2012-2020.csv"))
+df_clases <- data.frame(clases = c("pobres", "vulnerables", "clase media", "clase alta"), id = c(1, 2, 3, 4))
+
+# Guardamos una base por clase y nivel territorial
+lapply(unique(clases_col$value_label), function(x){
+  
+  print(x)
+  clase <- gsub(".*-", "", x)
+  clase <- tolower(clase) %>% str_trim()
+  y <- df_clases %>% dplyr::filter(clases == clase) 
+  print(clase)
+  nacional <- clases_col %>% dplyr::filter(value_label == x) %>% mutate(variable = glue("{variable}_{y$id}"))
+  areas <- clases_am %>% dplyr::filter(value_label == x) %>% mutate(variable = glue("{variable}_{y$id}"))
+  zonas <- clases_zona %>% dplyr::filter(value_label == x) %>% mutate(variable = glue("{variable}_{y$id}"))
+  
+  # Exportar base
+  write_csv(nacional, glue("{datos}/base_clases_sociales_{clase}_col_2012-2020.csv"))
+  write_csv(areas, glue("{datos}/base_clases_sociales_{clase}_am_2012-2020.csv"))
+  write_csv(zonas, glue("{datos}/base_clases_sociales_{clase}_zona_2012-2020.csv"))
+
+})
 
 rm(list = ls(pattern = "clase"))
